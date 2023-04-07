@@ -5,30 +5,29 @@
     <style>
       /* Add your CSS styles here */
     </style>
-    <link rel="stylesheet" href="style.css"/>
-  </head>
+    <link rel="stylesheet" href="style.css"/> 
+</head>
   <body>
-    <div>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Sign up</a></li>
-        <li><a href="#">Login</a></li>
-        <li><a href="#">Configuration</a></li>
-        <li><a href="#">Game</a></li>        
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
+    <div id="menu">
+        <li><a href="#" id="menuHome">Home</a></li>
+        <li><a href="#" id="menuSign up">Sign Up</a></li>
+        <li><a href="#" id="menuLogin">Login</a></li>
+        <li><a href="#" id="menuConfiguration">Configuration</a></li>
+        <li><a href="#" id="menuGame">Game</a></li>        
+        <li><a href="#" id="menuAbout">About</a></li>
+        <li><a href="#" id="menuContact">Contact</a></li>
     </div>
 
 <!--Welcome-->
-    <div id="Welcome">
+    <div id="Welcome" style="display: none;">
       <h2>Welcome</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fringilla, tortor vel ullamcorper blandit, metus ipsum rutrum lorem, non tincidunt purus sapien non metus.</p>
     </div>
 <!--Sign up-->    
-    <div id="Sign up">
-      <h2>Register</h2>
-      <form>
+    <div id="Sign up" style="display: none;">
+      <form id="myForm">  
         <label for="username">Username:</label>
-        <input type="text" id="username" name="username" placeholder="Username" required>
+        <input type="text" id="username" name="username" placeholder="Username">
         </br>
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" placeholder="Password" required>
@@ -45,41 +44,51 @@
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" placeholder="Email" required>
         </br>
-        <button type="submit">Sign Up</button>
+<!--        
+        <label for="birthday">Birthday:</label>
+        <input type="date" id="birthday" name="birthday" required>
+-->
+        </br>
+        <button type="submit" id="submit">Sign Up!</button>
         </br>
       </form>
     </div>
 <!--Login-->
-    <div id="Login">
+    <div id="Login" style="display: none;">
       <h2>Login</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fringilla, tortor vel ullamcorper blandit, metus ipsum rutrum lorem, non tincidunt purus sapien non metus.</p>
     </div>
 <!--Configuration-->  
-    <div id="Configuration">
+    <div id="Configuration" style="display: none;">
       <h2>Configuration</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fringilla, tortor vel ullamcorper blandit, metus ipsum rutrum lorem, non tincidunt purus sapien non metus.</p>
     </div> 
 <!--Game-->  
-    <div id="Game">
+    <div id="Game" style="display: none;">
       <h2>Game</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fringilla, tortor vel ullamcorper blandit, metus ipsum rutrum lorem, non tincidunt purus sapien non metus.</p>
     </div>      
 <!--About-->
-    <div id="About">
+    <div id="About" style="display: none;">
       <h2>About</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fringilla, tortor vel ullamcorper blandit, metus ipsum rutrum lorem, non tincidunt purus sapien non metus.</p>
     </div>
 <!--Contact-->  
-<div id="Contact">
+<div id="Contact" style="display: none;">
   <h2>Contact</h2>
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fringilla, tortor vel ullamcorper blandit, metus ipsum rutrum lorem, non tincidunt purus sapien non metus.</p>
 </div>     
 
-    <footer>
-      <p>Copyright © 2023 My Application.
-      All rights reserved.</p>
-      <p>Contact us: contact@myapplication.com</p>
-    </footer>
+<!--
+  <footer>
+    <p>Copyright © 2023 My Application.
+    All rights reserved.</p>
+    <p>Contact us: contact@myapplication.com</p>
+  </footer>
+-->
+
+
+  <script type="text/javascript" src="website.js"></script>
 
   </body>
 </html>
