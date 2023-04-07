@@ -36,9 +36,23 @@ function gotoGame(){
     document.getElementById("Game").style.display = "flex";
 }
 function gotoAbout(){
-    hideScreens();
+    var modal = document.getElementById("About");
+    document.querySelector("#About").showModal();
     document.getElementById("About").style.display = "flex";
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+    document.addEventListener('keydown',function(event){
+        if(event.key === "Escape"){
+            modal.style.display = "none";
+        }
+    })
 }
+
+
+
 function gotoContact(){
     hideScreens();
     document.getElementById("Contact").style.display = "flex";
@@ -91,3 +105,7 @@ function signUpCheck(){
 }
 
 window.addEventListener("load", menuNavigation, false);
+
+
+
+
