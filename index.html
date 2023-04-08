@@ -9,25 +9,24 @@
 </head>
   <body>
     <div id="menu">
+        <img class ="logoimg" src="/images/Site-logo.png">
         <li><a href="#" id="menuHome">Home</a></li>
         <li><a href="#" id="menuSign up">Sign Up</a></li>
         <li><a href="#" id="menuLogin">Login</a></li>
         <li><a href="#" id="menuConfiguration">Configuration</a></li>
         <li><a href="#" id="menuGame">Game</a></li>        
         <li><a href="#" id="menuAbout">About</a></li>
-        <li><a href="#" id="menuContact">Contact</a></li>
     </div>
-
-<!--Welcome-->
-    <div id="Welcome" style="display: none;">
-      <h2>Welcome</h2>
+<!--Home-->
+    <div id="Home" style="display: none;">
+      <h2>Home</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fringilla, tortor vel ullamcorper blandit, metus ipsum rutrum lorem, non tincidunt purus sapien non metus.</p>
     </div>
-<!--Sign up-->    
+<!--Sign up-->
     <div id="Sign up" style="display: none;">
       <form id="myForm">  
         <label for="username">Username:</label>
-        <input type="text" id="username" name="username" placeholder="Username">
+        <input type="text" id="username" name="username" placeholder="Username" required>
         </br>
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" placeholder="Password" required>
@@ -44,10 +43,9 @@
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" placeholder="Email" required>
         </br>
-<!--        
-        <label for="birthday">Birthday:</label>
-        <input type="date" id="birthday" name="birthday" required>
--->
+        <label for="birthday" class="input-box">Birthday:
+        <input type="date" name="birthday" id="birthday" required>
+        </label>
         </br>
         <button type="submit" id="submit">Sign Up!</button>
         </br>
@@ -60,27 +58,54 @@
     </div>
 <!--Configuration-->  
     <div id="Configuration" style="display: none;">
-      <h2>Configuration</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fringilla, tortor vel ullamcorper blandit, metus ipsum rutrum lorem, non tincidunt purus sapien non metus.</p>
+      <form id="configuration-form">
+        <label>Choose ONE keyword you want to shoot with.</br>Pay attention - you can only use the letters keywords and the spacebar.</br>Press the keyword you choose:</br></label>
+        <input id="keyword" type="text" required>
+        <button type="submit">Save</button>
+        </br>
+        </br>
+        </br>
+        <label for="duration">Set the game duration (in seconds):</label>
+        </br>
+        <input type="number" id="duration" min="120" value="120" required>
+        <button id="Saveduration">Save</button>
+        </br>
+        </br>
+        </br>
+
+        <p>Choose your player character:</p>
+        <form style="display: inline;">
+          <label id="spaceships_choose">
+            <input type="radio" name="character" value="player1">
+            <img src="/images/Spaceship_1.jpg" alt="Player 1" height="10px" >
+          </label>
+          <br>
+          <label id="spaceships_choose">
+            <input type="radio" name="character" value="player2">
+            <img src="/images/Spaceship_2.png" alt="Player 2" height="10px">
+          </label>
+          <br>
+          <label id="spaceships_choose">
+            <input type="radio" name="character" value="player3">
+            <img src="/images/Spaceship_3.png" alt="Player 3" height="10px" >
+          </label>
+      
+        </form>
+
+        <button class="startbutton" id="startbutton" onclick="startGame()"><span>START</span></button>
+      </form>
     </div> 
 <!--Game-->  
     <div id="Game" style="display: none;">
       <h2>Game</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fringilla, tortor vel ullamcorper blandit, metus ipsum rutrum lorem, non tincidunt purus sapien non metus.</p>
-    </div>      
+    </div>
 <!--About-->
     <dialog id="About" style="display: none;">
       <form method="dialog">
         <p>Information about us</p>
       </form>
     </dialog>
-
-
-<!--Contact-->  
-<div id="Contact" style="display: none;">
-  <h2>Contact</h2>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fringilla, tortor vel ullamcorper blandit, metus ipsum rutrum lorem, non tincidunt purus sapien non metus.</p>
-</div>     
 
 <!--
   <footer>

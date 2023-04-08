@@ -6,35 +6,80 @@ function menuNavigation(){
     document.getElementById("menuAbout").addEventListener("click", gotoAbout);
     document.getElementById("menuHome").addEventListener("click", gotoHome);
     document.getElementById("menuGame").addEventListener("click", gotoGame);
-    document.getElementById("menuContact").addEventListener("click", gotoContact);
 }
 
 function buttonNavigation(){
     //buttons and navigation
-    document.getElementById("submit").addEventListener("click", gotoRegister);
-
+    document.getElementById("submit").addEventListener("click", registerCheck);
+    document.getElementById("startbutton").addEventListener("click", gotoGame_configuration);
 }
 
+function configurationCheck(){
+    let shootbtn = document.getElementById("keyword").value;
+    const shootRegex = /^[a-zA-Z\s]$/; 
+    if (!(shootRegex.test(shootbtn))){
+        alert("Please follow the insrtuctions below.");
+        return false;
+    }
+    return true;
+}
+
+
+function gotoGame_configuration(){
+    if (configurationCheck()){
+        document.getElementById("Home").style.display="none";
+        document.getElementById("Sign up").style.display="none";
+        document.getElementById("Login").style.display="none";
+        document.getElementById("Configuration").style.display="none";
+        document.getElementById("About").style.display="none";
+        document.getElementById("Game").style.display = "flex";
+    }
+    document.getElementById("Game").style.display = "flex";
+        //loadGame()
+}
+
+
 function gotoSignup(){
-    hideScreens();
+    document.getElementById("Home").style.display="none";
+    document.getElementById("Login").style.display="none";
+    document.getElementById("Game").style.display="none";
+    document.getElementById("Configuration").style.display="none";
+    document.getElementById("About").style.display="none";
     document.getElementById("Sign up").style.display = "flex";
 }
 function gotoLogin(){
-    hideScreens();
+    document.getElementById("Home").style.display="none";
+    document.getElementById("Sign up").style.display="none";
+    document.getElementById("Game").style.display="none";
+    document.getElementById("Configuration").style.display="none";
+    document.getElementById("About").style.display="none";
     document.getElementById("Login").style.display = "flex";
 }
 function gotoConfiguration(){
-    hideScreens();
+    document.getElementById("Home").style.display="none";
+    document.getElementById("Sign up").style.display="none";
+    document.getElementById("Login").style.display="none";
+    document.getElementById("Game").style.display="none";
+    document.getElementById("About").style.display="none";
     document.getElementById("Configuration").style.display = "flex";
 }
 function gotoHome(){
-    hideScreens();
+    document.getElementById("Sign up").style.display="none";
+    document.getElementById("Login").style.display="none";
+    document.getElementById("Game").style.display="none";
+    document.getElementById("Configuration").style.display="none";
+    document.getElementById("About").style.display="none";
     document.getElementById("Home").style.display = "flex";
 }
 function gotoGame(){
-    hideScreens();
+    document.getElementById("Home").style.display="none";
+    document.getElementById("Sign up").style.display="none";
+    document.getElementById("Login").style.display="none";
+    document.getElementById("Configuration").style.display="none";
+    document.getElementById("About").style.display="none";
     document.getElementById("Game").style.display = "flex";
 }
+
 function gotoAbout(){
     var modal = document.getElementById("About");
     document.querySelector("#About").showModal();
@@ -51,27 +96,16 @@ function gotoAbout(){
     })
 }
 
-
-
-function gotoContact(){
-    hideScreens();
-    document.getElementById("Contact").style.display = "flex";
-}
-function gotoRegister(){
-    if (signUpCheck() == true){
-        hideScreens()
-        //loadGame()
+function registerCheck(){
+    if (signUpCheck()){
+        document.getElementById("Home").style.display="none";
+        document.getElementById("Sign up").style.display="none";
+        document.getElementById("Login").style.display="none";
+        document.getElementById("Configuration").style.display="none";
+        document.getElementById("About").style.display="none";
     }
-}
-
-function hideScreens(){
-    document.getElementById("Welcome").style.display="none";
-    document.getElementById("Sign up").style.display="none";
-    document.getElementById("Login").style.display="none";
-    document.getElementById("Game").style.display="none";
-    document.getElementById("Configuration").style.display="none";
-    document.getElementById("About").style.display="none";
-    document.getElementById("Contact").style.display="none";
+    document.getElementById("Game").style.display = "flex";
+        //loadGame()
 }
 
 function signUpCheck(){
@@ -108,4 +142,75 @@ window.addEventListener("load", menuNavigation, false);
 
 
 
+function startGame() {
+    const characterRadioButtons = document.getElementsByName("character");
+    let selectedCharacter;
+  
+    // Loop through each radio button to find the selected one
+    for (let i = 0; i < characterRadioButtons.length; i++) {
+      if (characterRadioButtons[i].checked) {
+        selectedCharacter = characterRadioButtons[i].value;
+        break;
+      }
+    }
+  
+    // Do something with the selected character
+    if (selectedCharacter) {
+      alert("You have chosen " + selectedCharacter + " as your player character.");
+      // Start the game with the selected character
+    } else {
+      alert("Please choose a player character.");
+    }
+  }
+  
 
+
+
+//start game
+
+// var startButton = document.getElementById("start-game");
+// startButton.addEventListener("click", function() {
+//   var durationInput = document.getElementById("duration");
+//   var duration = durationInput.value;
+//   startGame(duration);
+// });
+
+// function startGame(duration) {
+//   // game logic goes here
+// }
+
+
+
+// function startGame(duration) {
+//     var timeLeft = duration;
+//     var intervalId = setInterval(function() {
+//       timeLeft--;
+//       if (timeLeft === 0) {
+//         clearInterval(intervalId);
+//         endGame();
+//       }
+//       updateTimer(timeLeft);
+//     }, 1000);
+//   }
+  
+//   function updateTimer(timeLeft) {
+//     var timerElement = document.getElementById("timer");
+//     timerElement.textContent = formatTime(timeLeft);
+//   }
+  
+//   function formatTime(time) {
+//     var minutes = Math.floor(time / 60);
+//     var seconds = time % 60;
+//     return minutes + ":" + (seconds < 10 ? "0" + seconds : seconds);
+//   }
+  
+//   function endGame() {
+//     // game over logic goes here
+//   }
+  
+
+
+//move down, up handler:
+// document.addEventListener("keydown", function (event) {
+//     keyDownHandler(event);
+//   });
