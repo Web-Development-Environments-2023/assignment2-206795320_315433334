@@ -108,11 +108,12 @@
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fringilla, tortor vel ullamcorper blandit, metus ipsum rutrum lorem, non tincidunt purus sapien non metus.</p>
     </div>
 <!--About-->
-    <dialog id="About" style="display: none;">
-      <form method="dialog">
-        <p>Information about us</p>
-      </form>
-    </dialog>
+		<dialog id="About">
+			<span class="closeButton" onclick="document.getElementById('About').style.display='none'">&times;</span>
+			<div class="aboutClass-inner">
+				<h1>Information about us</h1>
+				</div>
+		</dialog>
 
 <!--
   <footer>

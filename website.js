@@ -81,20 +81,30 @@ function gotoGame(){
 }
 
 function gotoAbout(){
-    var modal = document.getElementById("About");
-    document.querySelector("#About").showModal();
+    var dialogTag = document.getElementsByTagName('dialog')[0];
     document.getElementById("About").style.display = "flex";
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
+    //When the user clicks the button, open the modal 
+    document.getElementsByClassName("closeButton")[0].onclick = function() {
+        document.getElementById("About").style.display = "none";
+        dialogTag.close();
     }
-    document.addEventListener('keydown',function(event){
-        if(event.key === "Escape"){
-            modal.style.display = "none";
+    //When the user clicks esc
+    window.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+            document.getElementById("About").style.display = "none";
+            dialogTag.close();
         }
     })
+    //When the user clicks anywhere outside of the modal, close it
+    dialogTag.showModal();
+    window.onclick = function(event) {
+        if (event.target == dialogTag) {
+            document.getElementById("About").style.display = "none";
+            dialogTag.close();
+        }
+    }
 }
+
 
 function registerCheck(){
     if (signUpCheck()){
@@ -157,7 +167,7 @@ function startGameAfterConf() {
 
 
   
-  
+ 
 
 
 
