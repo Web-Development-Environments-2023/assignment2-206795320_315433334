@@ -59,6 +59,7 @@
 <!--Configuration-->  
     <div id="Configuration" style="display: none;">
       <form id="configuration-form">
+        </br>
         <label>Choose ONE keyword you want to shoot with.</br>Pay attention - you can only use the letters keywords and the spacebar.</br>Press the keyword you choose:</br></label>
         <input id="keyword" type="text" required>
         <button type="submit">Save</button>
@@ -72,27 +73,33 @@
         </br>
         </br>
         </br>
-
         <p>Choose your player character:</p>
-        <form style="display: inline;">
-          <label id="spaceships_choose">
-            <input type="radio" name="character" value="player1">
-            <img src="/images/Spaceship_1.jpg" alt="Player 1" height="10px" >
+        </br>
+        <form>
+          <ul class="images">
+          <li>
+          <input type="radio" name="character" id="choose-1" value="1">
+          <label for="choose-1">
+            <img src="/images/Spaceship_1.jpg" alt="Player 1" id="choose-1">
           </label>
-          <br>
-          <label id="spaceships_choose">
-            <input type="radio" name="character" value="player2">
-            <img src="/images/Spaceship_2.png" alt="Player 2" height="10px">
+          </li>
+          <li>
+          <input type="radio" name="character" id="choose-2" value="2">
+          <label for="choose-2">  
+            <img src="/images/Spaceship_2.png" alt="Player 2" id="choose-1">
           </label>
-          <br>
-          <label id="spaceships_choose">
-            <input type="radio" name="character" value="player3">
-            <img src="/images/Spaceship_3.png" alt="Player 3" height="10px" >
+          </li>
+          <li>
+          <input type="radio" name="character" id="choose-3" value="3">
+          <label for="choose-3">
+            <img src="/images/Spaceship_3.png" alt="Player 3" id="choose-1">
           </label>
-      
+          </li>
+          </ul>
         </form>
-
-        <button class="startbutton" id="startbutton" onclick="startGame()"><span>START</span></button>
+        </br>
+        </br>
+        <button class="startbutton" id="startbutton" onclick="startGameAfterConf()"><span>START</span></button>
       </form>
     </div> 
 <!--Game-->  

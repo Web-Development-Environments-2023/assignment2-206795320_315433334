@@ -142,24 +142,15 @@ window.addEventListener("load", menuNavigation, false);
 
 
 
-function startGame() {
+function startGameAfterConf() {
     const characterRadioButtons = document.getElementsByName("character");
     let selectedCharacter;
-  
     // Loop through each radio button to find the selected one
     for (let i = 0; i < characterRadioButtons.length; i++) {
       if (characterRadioButtons[i].checked) {
         selectedCharacter = characterRadioButtons[i].value;
         break;
       }
-    }
-  
-    // Do something with the selected character
-    if (selectedCharacter) {
-      alert("You have chosen " + selectedCharacter + " as your player character.");
-      // Start the game with the selected character
-    } else {
-      alert("Please choose a player character.");
     }
   }
   
