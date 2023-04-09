@@ -108,13 +108,16 @@ function gotoAbout(){
 
 function registerCheck(){
     if (signUpCheck()){
+        users[document.getElementById("username").value] = document.getElementById("password").value;
         document.getElementById("Home").style.display="none";
         document.getElementById("Sign up").style.display="none";
         document.getElementById("Login").style.display="none";
         document.getElementById("Configuration").style.display="none";
         document.getElementById("About").style.display="none";
+        alert("You have successfully registered!");
+        document.getElementById("myForm").reset();
+        document.getElementById("Game").style.display = "flex";
     }
-    document.getElementById("Game").style.display = "flex";
         //loadGame()
 }
 
@@ -143,6 +146,10 @@ function signUpCheck(){
     }
     if (!emailRegex.test(email)){
         alert("This email address isn't valid");
+        return false;
+    }
+    if (!(users[document.getElementById("username").value] == undefined)){
+        alert("This user is already sign up!");
         return false;
     }
     return true;

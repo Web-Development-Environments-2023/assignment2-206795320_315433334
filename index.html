@@ -74,25 +74,24 @@
         </br>
         </br>
         <p>Choose your player character:</p>
-        </br>
         <form>
           <ul class="images">
           <li>
           <input type="radio" name="character" id="choose-1" value="1">
           <label for="choose-1">
-            <img src="/images/Spaceship_1.jpg" alt="Player 1" id="choose-1">
+            <img src="/images/Spaceship1.png" alt="Player 1" id="choose-1">
           </label>
           </li>
           <li>
           <input type="radio" name="character" id="choose-2" value="2">
           <label for="choose-2">  
-            <img src="/images/Spaceship_2.png" alt="Player 2" id="choose-1">
+            <img src="/images/Spaceship2.png" alt="Player 2" id="choose-1">
           </label>
           </li>
           <li>
           <input type="radio" name="character" id="choose-3" value="3">
           <label for="choose-3">
-            <img src="/images/Spaceship_3.png" alt="Player 3" id="choose-1">
+            <img src="/images/Spaceship3.png" alt="Player 3" id="choose-1">
           </label>
           </li>
           </ul>
@@ -104,14 +103,13 @@
     </div> 
 <!--Game-->  
     <div id="Game" style="display: none;">
-      <h2>Game</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fringilla, tortor vel ullamcorper blandit, metus ipsum rutrum lorem, non tincidunt purus sapien non metus.</p>
+      <canvas id="canvas" height="400" width="400"></canvas>
     </div>
 <!--About-->
 		<dialog id="About">
 			<span class="closeButton" onclick="document.getElementById('About').style.display='none'">&times;</span>
 			<div class="aboutClass-inner">
-				<h1>Information about us</h1>
+				<p>Information about us</p>
 				</div>
 		</dialog>
 
@@ -125,6 +123,7 @@
 
 
   <script type="text/javascript" src="website.js"></script>
+  <script type="text/javascript" src="game.js"></script>
 
   </body>
 </html>
