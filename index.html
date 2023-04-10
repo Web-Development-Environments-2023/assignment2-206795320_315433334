@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Chicken Invaders</title>
+    <script type="text/javascript" src="website.js"></script>
+    <script type="text/javascript" src="game.js"></script>
     <style>
       /* Add your CSS styles here */
+      canvas {
+        border: 3px solid rgb(231, 0, 0);
+      }
     </style>
     <link rel="stylesheet" href="style.css"/> 
-</head>
+  </head>
   <body>
     <div id="menu">
         <img class ="logoimg" src="/images/Site-logo.png">
@@ -103,8 +107,23 @@
     </div> 
 <!--Game-->  
     <div id="Game" style="display: none;">
-      <canvas id="canvas" height="400" width="400"></canvas>
+      <table>
+        <tr>
+          <td><canvas id="canvas" height="400" width="400"></canvas></td>
+        </tr>
+        <tr>
+          <td id="score-box">Score:<span id="score"></span></td>
+        </tr>
+        <tr>
+          <td><button id="startGame-button">Start Game</button></td>
+        </tr>
+        <tr>
+          <td><button id="stopGame-button">Stop Game</button></td>
+        </tr>
+      </table>
     </div>
+
+    
 <!--About-->
 		<dialog id="About">
 			<span class="closeButton" onclick="document.getElementById('About').style.display='none'">&times;</span>
@@ -122,8 +141,7 @@
 -->
 
 
-  <script type="text/javascript" src="website.js"></script>
-  <script type="text/javascript" src="game.js"></script>
+
 
   </body>
 </html>

@@ -1,3 +1,7 @@
+var canvas;
+var ctx;
+
+
 function menuNavigation(){
     buttonNavigation();
     document.getElementById("menuSign up").addEventListener("click", gotoSignup);
@@ -6,12 +10,21 @@ function menuNavigation(){
     document.getElementById("menuAbout").addEventListener("click", gotoAbout);
     document.getElementById("menuHome").addEventListener("click", gotoHome);
     document.getElementById("menuGame").addEventListener("click", gotoGame);
+    canvas = document.getElementById('canvas');
+    ctx = canvas.getContext('2d');
 }
+
 
 function buttonNavigation(){
     //buttons and navigation
     document.getElementById("submit").addEventListener("click", registerCheck);
     document.getElementById("startbutton").addEventListener("click", gotoGame_configuration);
+    document.getElementById("startGame-button").addEventListener("click", startGame);
+    document.getElementById("stopGame-button").addEventListener("click", stopGame);
+    //move down, up handler:
+    document.addEventListener("keydown", function (event) {
+        keyDownHandler(event);
+    });
 }
 
 function configurationCheck(){
@@ -81,7 +94,7 @@ function gotoGame(){
 }
 
 function gotoAbout(){
-    var dialogTag = document.getElementsByTagName('dialog')[0];
+    var dialogTag = document.getElementsByTagName("dialog")[0];
     document.getElementById("About").style.display = "flex";
     //When the user clicks the button, open the modal 
     document.getElementsByClassName("closeButton")[0].onclick = function() {
@@ -160,18 +173,6 @@ window.onloadstart = gotoHome();
 
 
 
-function startGameAfterConf() {
-    const characterRadioButtons = document.getElementsByName("character");
-    let selectedCharacter;
-    // Loop through each radio button to find the selected one
-    for (let i = 0; i < characterRadioButtons.length; i++) {
-      if (characterRadioButtons[i].checked) {
-        selectedCharacter = characterRadioButtons[i].value;
-        break;
-      }
-    }
-  }
-
 
   
  
@@ -219,10 +220,3 @@ function startGameAfterConf() {
 //   function endGame() {
 //     // game over logic goes here
 //   }
-  
-
-
-//move down, up handler:
-// document.addEventListener("keydown", function (event) {
-//     keyDownHandler(event);
-//   });
