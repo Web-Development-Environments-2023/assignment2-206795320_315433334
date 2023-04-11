@@ -21,11 +21,40 @@ function buttonNavigation(){
     document.getElementById("startbutton").addEventListener("click", gotoGame_configuration);
     document.getElementById("startGame-button").addEventListener("click", startGame);
     document.getElementById("stopGame-button").addEventListener("click", stopGame);
+    document.getElementById("login_home").addEventListener("click", gotoLogin);
+    document.getElementById("signup_home").addEventListener("click", gotoSignup);
+
+    //login button
+    const loginBtn = document.getElementById("login-button");
+    loginBtn.addEventListener("click", function(event) {
+        event.preventDefault(); // prevent form submission
+        const usernameInput = document.getElementById("username_login").value;
+        const passwordInput = document.getElementById("password_login").value;
+        const isValidUser = checkUser(usernameInput, passwordInput);
+
+        if (isValidUser) {
+            document.getElementById("Login").style.display = "none";
+            document.getElementById("Game").style.display = "block";
+        } else {
+            alert("Invalid username or password");
+        }
+    });
+
     //move down, up handler:
     document.addEventListener("keydown", function (event) {
         keyDownHandler(event);
     });
 }
+
+
+function checkUser(username, password) {
+    // check if the user exists in the users array
+    if (users[username] == password) {
+        return true;
+    }
+    return false;
+}
+
 
 function configurationCheck(){
     let shootbtn = document.getElementById("keyword").value;
@@ -117,6 +146,26 @@ function gotoAbout(){
         }
     }
 }
+
+// function loginCheck(){
+//     let password = document.getElementById("password_login").value;
+//     let username = document.getElementById("username_login").value;
+//     if(users[username]!=password)
+//     {
+//         alert("Username or password are incorrect");
+//         return false;
+//     } 
+//     document.getElementById("Home").style.display="none";
+//     document.getElementById("Sign up").style.display="none";
+//     document.getElementById("Login").style.display="none";
+//     document.getElementById("Configuration").style.display="none";
+//     document.getElementById("About").style.display="none";
+//     // alert("You have successfully registered!");
+//     // document.getElementById("myForm").reset();
+//     document.getElementById("Game").style.display = "flex";
+//     return true;
+// }
+
 
 
 function registerCheck(){

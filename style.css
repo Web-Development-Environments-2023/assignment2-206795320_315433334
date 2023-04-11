@@ -113,7 +113,6 @@
 
 
 
-
   #choose-1 {
     width: 90px;
     height: 140px;
@@ -252,4 +251,55 @@
     bottom: 50px;
     left: 50%;
     transform: translateX(-50%);
+  }
+
+
+
+  /* Home page */
+
+  h1 {
+    font-size: 48px;
+    margin-top: 100px;
+  }
+
+  .button {
+    display: inline-block;
+    background-color: #ff4c4c;
+    color: #fff;
+    font-size: 24px;
+    padding: 20px 40px;
+    border-radius: 10px;
+    margin: 50px 20px;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px #fff;
+  }
+
+  .button:hover {
+    background-color: #ff8b8b;
+    box-shadow: 0px 0px 20px #fff;
+  }
+
+  .login {
+    float: left;
+  }
+
+  .signup {
+    float: right;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  #name-id {
+    /* position: absolute; */
+    /* top: 10%; */
+    margin-bottom: 40px;
+    left: 10%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 24px;
   }

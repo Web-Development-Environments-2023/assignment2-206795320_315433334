@@ -1,11 +1,8 @@
+
 //users list
-var users = [
-        {p: testuser}
-    ];
-var chickensURL = [
-    
-]
-var userTest = {username: "p", password: "testuser"};
+var users =  {"p":"testuser"} ;
+var chickensURL = []
+
 const scoreBox = document.getElementById("score-box");
 const score = document.getElementById("score");
 var userScore;

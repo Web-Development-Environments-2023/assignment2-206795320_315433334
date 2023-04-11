@@ -10,6 +10,7 @@
       }
     </style>
     <link rel="stylesheet" href="style.css"/> 
+  <title>Welcome to Chicken Invaders</title>
   </head>
   <body>
     <div id="menu">
@@ -22,10 +23,22 @@
         <li><a href="#" id="menuAbout">About</a></li>
     </div>
 <!--Home-->
-    <div id="Home" style="display: none;">
-      <h2>Home</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fringilla, tortor vel ullamcorper blandit, metus ipsum rutrum lorem, non tincidunt purus sapien non metus.</p>
+<div id="Home" style="display: none;">
+  <div class="container">
+    <div>
+      </br>
+      <h1>Welcome to Chicken Invaders!</h1>
+      <div class="button-container">
+        <button class="button login" id="login_home">Login</button>
+        <button class="button signup" id="signup_home">Sign Up</button>
+      </div>
     </div>
+  </div>
+  <tr>
+    <td id="name-id">Assaf Shookroon  |  206795320  | Omer |  [Your ID]<span id="name-id"></span></td></br>
+  </tr>
+</div>
+
 <!--Sign up-->
     <div id="Sign up" style="display: none;">
       <form id="myForm">  
@@ -58,7 +71,13 @@
 <!--Login-->
     <div id="Login" style="display: none;">
       <h2>Login</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fringilla, tortor vel ullamcorper blandit, metus ipsum rutrum lorem, non tincidunt purus sapien non metus.</p>
+        <label for="username_login">Username:</label>
+        <input type="text" id="username_login" name="username_login" placeholder="Username" required>
+        </br>
+        <label for="password_login">Password:</label>
+        <input type="password" id="password_login" name="password_login" placeholder="Password" required>
+        </br>
+        <button class="button login" id="login-button">Login</button>
     </div>
 <!--Configuration-->  
     <div id="Configuration" style="display: none;">
