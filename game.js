@@ -320,7 +320,7 @@ function startTimer(duration) {
         }
     }, 1000);
 } 
-
+ 
 function ArrowUp(){
     const prevSpaceshipX = userSpaceship.x;
     const prevSpaceshipY = userSpaceship.y;

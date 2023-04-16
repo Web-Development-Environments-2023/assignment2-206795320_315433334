@@ -22,7 +22,7 @@ function buttonNavigation(){
         if (document.getElementById("configuration-form").checkValidity()) {
             // the form is valid, continue to load the game
             startGaming();
-        } 
+        }
         else {
           // the form is incomplete, show a notification to the user
             event.preventDefault();
