@@ -80,6 +80,16 @@ function configurationFilled(){
     }
 }
 
+
+function checkUser(username, password) {
+    // check if the user exists in the users array
+    if (users[username] == password) {
+        return true;
+    }
+    return false;
+}
+
+
 function configurationCheck(){
     let shootbtn = document.getElementById("keyword").value;
     const shootRegex = /^[a-zA-Z\s]$/; 
