@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script type="text/javascript" src="website.js"></script>
-    <script type="text/javascript" src="game.js"></script>
     <style>
       /* Add your CSS styles here */
       canvas {
-        border: 3px solid rgb(231, 0, 0);
+        border: 3px solid rgb(160, 106, 204);
+        box-shadow: 0 0 20px 10px #fff;
       }
     </style>
-    <link rel="stylesheet" href="style.css"/> 
+    <link rel="stylesheet" href="style.css"/>
   </head>
   <body>
     <div id="menu">
@@ -23,8 +22,16 @@
     </div>
 <!--Home-->
     <div id="Home" style="display: none;">
-      <h2>Home</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fringilla, tortor vel ullamcorper blandit, metus ipsum rutrum lorem, non tincidunt purus sapien non metus.</p>
+      <div class="container1">
+        <img src="/images/HomeImage.png" alt="Home" id="HomeImage">
+        <div class="button_container">
+          <button class="button login" id="login_home">Login</button>
+          <button class="button signup" id="signup_home">Sign Up</button>
+        </div>
+      </div>
+      <tr>
+        <td id="name-id">Assaf Shookroon  |  206795320  |  Omer Sabag  |  315433334<span id="name-id"></span></td></br>
+      </tr>
     </div>
 <!--Sign up-->
     <div id="Sign up" style="display: none;">
@@ -58,7 +65,15 @@
 <!--Login-->
     <div id="Login" style="display: none;">
       <h2>Login</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fringilla, tortor vel ullamcorper blandit, metus ipsum rutrum lorem, non tincidunt purus sapien non metus.</p>
+      <form id="loginForm">
+        <label for="username_login">Username:</label>
+        <input type="text" id="username_login" name="username_login" placeholder="Username" required>
+        </br>
+        <label for="password_login">Password:</label>
+        <input type="password" id="password_login" name="password_login" placeholder="Password" required>
+        </br>
+        <button class="button login" id="login-button">Login</button>
+      </form>
     </div>
 <!--Configuration-->  
     <div id="Configuration" style="display: none;">
@@ -81,19 +96,19 @@
         <form>
           <ul class="images">
           <li>
-          <input type="radio" name="character" id="choose-1" value="1">
+          <input type="radio" name="character" id="choose-1" value="/images/Spaceship1.png" required>
           <label for="choose-1">
             <img src="/images/Spaceship1.png" alt="Player 1" id="choose-1">
           </label>
           </li>
           <li>
-          <input type="radio" name="character" id="choose-2" value="2">
+          <input type="radio" name="character" id="choose-2" value="/images/Spaceship2.png" required>
           <label for="choose-2">  
             <img src="/images/Spaceship2.png" alt="Player 2" id="choose-1">
           </label>
           </li>
           <li>
-          <input type="radio" name="character" id="choose-3" value="3">
+          <input type="radio" name="character" id="choose-3" value="/images/Spaceship3.png" required>
           <label for="choose-3">
             <img src="/images/Spaceship3.png" alt="Player 3" id="choose-1">
           </label>
@@ -102,28 +117,22 @@
         </form>
         </br>
         </br>
-        <button class="startbutton" id="startbutton" onclick="startGameAfterConf()"><span>START</span></button>
+        <button class="startbutton" id="startbutton"><span>START</span></button>
       </form>
     </div> 
 <!--Game-->  
     <div id="Game" style="display: none;">
-      <table>
-        <tr>
-          <td><canvas id="canvas" height="400" width="400"></canvas></td>
-        </tr>
-        <tr>
-          <td id="score-box">Score:<span id="score"></span></td>
-        </tr>
-        <tr>
-          <td><button id="startGame-button">Start Game</button></td>
-        </tr>
-        <tr>
-          <td><button id="stopGame-button">Stop Game</button></td>
-        </tr>
-      </table>
-    </div>
-
-    
+      <section class="container">
+          <canvas id="canvas" height="500" width="1280"></canvas>
+            <img src="/images/chicken.png" id="chickenImg" style="display: none;">
+            <img src="/images/heartGif.gif" id="heartGif" style="display: none;">
+            <img src="/images/canvasBackgroundGif.gif" id="canvasBackgroundGif" style="display: none;">
+          <section class="button-container">
+          <button id="startGame-button">Start Game</button>
+          <button id="stopGame-button">Stop Game</button>
+        </section>
+      </section>
+    </div>  
 <!--About-->
 		<dialog id="About">
 			<span class="closeButton" onclick="document.getElementById('About').style.display='none'">&times;</span>
@@ -140,8 +149,8 @@
   </footer>
 -->
 
-
-
+  <script type="text/javascript" src="website.js"></script>
+  <script type="text/javascript" src="game.js"></script>
 
   </body>
 </html>
