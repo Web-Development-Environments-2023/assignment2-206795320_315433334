@@ -239,3 +239,4 @@ function signUpCheck(){
 }
 
 window.addEventListener("load", menuNavigation, false);
+window.onloadstart = gotoHome();
