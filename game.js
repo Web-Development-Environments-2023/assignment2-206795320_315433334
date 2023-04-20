@@ -13,7 +13,7 @@ var interval;
 var intervalOfTimer;
 var pattern;
 var playerLife;
-var edge;
+var edge;   
 var eggs;
 var userShootSpeed;
 var spaceshipX;
