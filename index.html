@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-16">
     <style>
       /* Add your CSS styles here */
-      canvas {
-        border: 3px solid rgb(160, 106, 204);
+      #canvas {
+        border: 3px solid #c69ce1;
         box-shadow: 0 0 20px 10px #fff;
       }
     </style>
@@ -25,8 +26,8 @@
   <div class="container1">
     <img src="/images/HomeImage.png" alt="Home" id="HomeImage">
     <div class="button_container">
-      <button class="button login" id="login_home">Login</button>
-      <button class="button signup" id="signup_home">Sign Up</button>
+      <button class="button-92" id="login_home">Login</button>
+      <button class="button-92" id="signup_home">Sign Up</button>
     </div>
   </div>
   <tr>
@@ -38,56 +39,43 @@
       <form id="myForm">  
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" placeholder="Username" required>
-        </br>
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" placeholder="Password" required>
-        </br>
         <label for="confirm password">Confirm password:</label>
         <input type="password" id="confirm password" name="confirm password" placeholder="Confirm password" required>
-        </br>
         <label for="first name">First name:</label>
         <input type="first name" id="first name" name="first name" placeholder="First name" required>
-        </br>
         <label for="last name">Last name:</label>
         <input type="last name" id="last name" name="last name" placeholder="Last name" required>
-        </br>
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" placeholder="Email" required>
-        </br>
         <label for="birthday" class="input-box">Birthday:
         <input type="date" name="birthday" id="birthday" required>
         </label>
         </br>
-        <button type="submit" id="submit">Sign Up!</button>
+        <button class="button-92" id="submit">Sign Up!</button>
         </br>
       </form>
     </div>
-<!--Login-->
+<!--Login--> 
     <div id="Login" style="display: none;">
-      <h2>Login</h2>
       <form id="loginForm">
-        <label for="username_login">Username:</label>
         <input type="text" id="username_login" name="username_login" placeholder="Username" required>
-        </br>
-        <label for="password_login">Password:</label>
         <input type="password" id="password_login" name="password_login" placeholder="Password" required>
         </br>
-        <button class="button login" id="login-button">Login</button>
+        <button class="button-92" id="login-button">Login</button>
       </form>
     </div>
 <!--Configuration-->  
     <div id="Configuration" style="display: none;">
       <form id="configuration-form">
-        </br>
-        <label>Choose ONE keyword you want to shoot with.</br>Pay attention - you can only use the letters keywords and the spacebar.</br>Press the keyword you choose:</br></label>
-        <input id="keyword" type="text" required>
-        <button type="submit">Save</button>
-        </br>
-        </br>
+        <label>Choose keyword you want to shoot with.</br>Pay attention - you can only use the letters keywords and the spacebar.</br>Click the "Click and press" button and press the keyword you choose:</br></label>
+        <input type="text" id="shootkey" readonly>
+        <button id="assignkey">Click and press keyword</button><br/><br/>
         </br>
         <label for="duration">Set the game duration (in seconds):</label>
         </br>
-        <input type="number" id="duration" min="120" value="120" required>
+        <input type="number" id="duration" min="5" value="120" required>
         <button id="Saveduration">Save</button>
         </br>
         </br>
@@ -96,19 +84,19 @@
         <form>
           <ul class="images">
           <li>
-          <input type="radio" name="character" id="choose-1" value="/images/Spaceship1.png" required>
+          <input type="radio" name="character" id="choose-1" value="/images/Spaceship1.png">
           <label for="choose-1">
             <img src="/images/Spaceship1.png" alt="Player 1" id="choose-1">
           </label>
           </li>
           <li>
-          <input type="radio" name="character" id="choose-2" value="/images/Spaceship2.png" required>
+          <input type="radio" name="character" id="choose-2" value="/images/Spaceship2.png">
           <label for="choose-2">  
             <img src="/images/Spaceship2.png" alt="Player 2" id="choose-1">
           </label>
           </li>
           <li>
-          <input type="radio" name="character" id="choose-3" value="/images/Spaceship3.png" required>
+          <input type="radio" name="character" id="choose-3" value="/images/Spaceship3.png">
           <label for="choose-3">
             <img src="/images/Spaceship3.png" alt="Player 3" id="choose-1">
           </label>
@@ -122,11 +110,12 @@
     </div> 
 <!--Game-->  
     <div id="Game" style="display: none;">
-      <section class="container">
-          <canvas id="canvas" height="500" width="1280"></canvas>
+        <section class="container">
+          <div id="canvas-container">
+            <canvas id="canvas" height="500" width="1280"></canvas>
+          </div>
             <img src="/images/chicken.png" id="chickenImg" style="display: none;">
-            <img src="/images/heartGif.gif" id="heartGif" style="display: none;">
-            <img src="/images/canvasBackgroundGif.gif" id="canvasBackgroundGif" style="display: none;">
+            <img src="/images/userShoot.png" id="shootImg" style="display: none;">
           <section class="button-container">
           <button id="startGame-button">Start Game</button>
           <button id="stopGame-button">Stop Game</button>
@@ -140,14 +129,12 @@
 				<p>Information about us</p>
 				</div>
 		</dialog>
+<!--Footer-->
+    <footer style="position: fixed; font-size: 13.5px; top: 665px; left: 20px; color: #f2f2f2; padding: 3px; text-align: center; z-index: 9999;   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
+      <p style="margin: 0;">Copyright © Assaf Shookroon  |  Omer Sabag  2023</p>
+      <p style="margin: 0;">Contact us: shookass@bgu.ac.il, sabagom@bgu.ac.il</p>
+    </footer>
 
-<!--
-  <footer>
-    <p>Copyright © 2023 My Application.
-    All rights reserved.</p>
-    <p>Contact us: contact@myapplication.com</p>
-  </footer>
--->
 
   <script type="text/javascript" src="website.js"></script>
   <script type="text/javascript" src="game.js"></script>
