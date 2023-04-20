@@ -52,7 +52,7 @@ survivor.loop = true;
 const britneySpears = new Audio('/images/youCanDoBetter.mp4');
 britneySpears.volume = 0.025;
 britneySpears.loop = true;
-const saritHadad = new Audio('/images/youLost.mp4');
+const saritHadad = new Audio('/images/youLost.mp3');
 saritHadad.volume = 0.03;
 saritHadad.loop = true;
 
