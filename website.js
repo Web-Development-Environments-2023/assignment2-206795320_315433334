@@ -1,7 +1,5 @@
-//TODO: //check about rotate the chickens while moving - w3school
-        //change var names of draw spaceship function 
-
-
+//TODO: // there is bug at "assignkey", check this
+        //after change configuration (Britney spears) it send to login - we want configuration only
 
 function menuNavigation(){
     buttonNavigation();
@@ -14,27 +12,47 @@ function menuNavigation(){
     
 }
 
+function assignKey() {
+    if (assigningKey) {
+        alert("Please follow the rules.");
+        document.getElementById("Configuration").style.display="flex";
+    }
+    assigningKey = true;
+    document.addEventListener("keydown", keydownListener);
+    function keydownListener(event) {
+        event.preventDefault();
+        if (event.code.startsWith("Arrow")) {
+            alert("You can not choose an arrow keyword.");
+            document.getElementById("Configuration").style.display="flex";
+        }
+        document.getElementById("shootkey").value = event.code;
+        document.removeEventListener("keydown", keydownListener);
+        assigningKey = false;
+    }
+}
+
 function buttonNavigation(){
     //buttons and navigation
     document.getElementById("submit").addEventListener("click", registerCheck);
+    document.getElementById("assignkey").addEventListener("click", assignKey);
     document.getElementById("startbutton").addEventListener("click", gotoGame_configuration);
     document.getElementById("startGame-button").addEventListener("click", function(event) {
         if (document.getElementById("configuration-form").checkValidity()) {
             // the form is valid, continue to load the game
-            startGaming();
+            startGaming();            
         }
         else {
-          // the form is incomplete, show a notification to the user
+            // the form is incomplete, show a notification to the user
             event.preventDefault();
             document.getElementById("configuration-form").classList.add("form-incomplete");
             alert("Please fill out all required fields before starting the game.\nWe redirect you :)");
-            gotoConfiguration();
+            gotoConfiguration(); //TODO: check this
         }
     });
-    document.getElementById("stopGame-button").addEventListener("click", stopGame);
+    document.getElementById("stopGame-button").addEventListener("click",  stopGame);
     document.addEventListener("DOMContentLoaded", function() {
         configurationFilled();
-        document.getElementById("configuration-form").addEventListener("input", checkForm);
+        // document.getElementById("configuration-form").addEventListener("input", checkForm);
     });
     document.getElementById("login_home").addEventListener("click", gotoLogin);
     document.getElementById("signup_home").addEventListener("click", gotoSignup);
@@ -65,7 +83,7 @@ function checkUser(username, password) {
 }
 
 function configurationFilled(){
-    const keyword = document.getElementById("keyword").value;
+    const keyword = document.getElementById("shootkey").value;
     const duration = document.getElementById("duration").value;
     const character = document.querySelector('input[name="character"]:checked');
     const configForm = document.getElementById("configuration-form");
@@ -80,37 +98,26 @@ function configurationFilled(){
     }
 }
 
-
-function checkUser(username, password) {
-    // check if the user exists in the users array
-    if (users[username] == password) {
-        return true;
-    }
-    return false;
-}
-
-
 function configurationCheck(){
-    let shootbtn = document.getElementById("keyword").value;
-    const shootRegex = /^[a-zA-Z\s]$/; 
-    const radioButtons = document.querySelectorAll('input[name="character"]');
-    let selected = false;
-    if (document.getElementById("Configuration").style.display="flex"){
-        if (!(shootRegex.test(shootbtn))){
-            alert("Please follow the insrtuctions below.");
+    let shootbtn = document.getElementById("shootkey").value;
+    if (document.getElementById("Configuration").style.display == "flex") {
+        if (shootbtn == ""){
+            alert("You have to click on the button and insert a keyword to shoot with.");
             return false;
         }
+        const radioButtons = document.querySelectorAll('input[name="character"]');
+        let selected = false;
+        radioButtons.forEach(radioButton => {
+        if (radioButton.checked) {
+            selected = true;
+        }
+        });
+        if (!selected) {
+            alert("You have to select one player.");
+            return false;
+        }
+        return true;
     }
-    radioButtons.forEach(radioButton => {
-      if (radioButton.checked) {
-        selected = true;
-      }
-    });
-    if (!selected) {
-        alert("You have to select one player.");
-        return false;
-    }
-    return true;
 }
 
 function gotoGame_configuration(){
@@ -121,6 +128,10 @@ function gotoGame_configuration(){
         document.getElementById("Configuration").style.display="none";
         document.getElementById("About").style.display="none";
         document.getElementById("Game").style.display = "flex";
+    }
+    else{
+        alert("You have to fill the configuration before.")
+        document.getElementById("Configuration").style.display="flex";
     }
 }
 
@@ -143,12 +154,26 @@ function gotoLogin(){
 }
 
 function gotoConfiguration(){
-    document.getElementById("Home").style.display="none";
-    document.getElementById("Sign up").style.display="none";
-    document.getElementById("Login").style.display="none";
-    document.getElementById("Game").style.display="none";
-    document.getElementById("About").style.display="none";
-    document.getElementById("Configuration").style.display = "flex";
+    const usernameInput = document.getElementById("username_login").value;
+    const passwordInput = document.getElementById("password_login").value;
+    const isValidUser = checkUser(usernameInput, passwordInput);
+    if (isValidUser) {
+        document.getElementById("Home").style.display="none";
+        document.getElementById("Sign up").style.display="none";
+        document.getElementById("Login").style.display="none";
+        document.getElementById("Game").style.display="none";
+        document.getElementById("About").style.display="none";
+        document.getElementById("Configuration").style.display = "flex";
+    }
+    else {
+        alert("You have to login or sign up first.\nWe redirect you :)");
+        document.getElementById("Home").style.display="none";
+        document.getElementById("Sign up").style.display="none";
+        document.getElementById("Game").style.display="none";
+        document.getElementById("About").style.display="none";
+        document.getElementById("Configuration").style.display = "none";
+        document.getElementById("Login").style.display="flex";
+    }
 }
 
 function gotoHome(){
@@ -161,17 +186,7 @@ function gotoHome(){
 }
 
 function gotoGame(){
-    // if (!(configurationCheck())){    
-    //     alert("You must set up a few things before you start playing. You are transferred to the right page and at the end you can start playing!");
-    // }
-    // else{
-    document.getElementById("Home").style.display="none";
-    document.getElementById("Sign up").style.display="none";
-    document.getElementById("Login").style.display="none";
-    document.getElementById("Configuration").style.display="none";
-    document.getElementById("About").style.display="none";
-    document.getElementById("Game").style.display = "flex";
-    // }
+    gotoGame_configuration();
 }
 
 function gotoAbout(){
