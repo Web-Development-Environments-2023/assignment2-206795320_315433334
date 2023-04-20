@@ -36,23 +36,23 @@ let chickenHeight = 50;
 let heartPosition = 0;
 let assigningKey = false;
 var eggImage = new Image();
-eggImage.src = '/images/chickenEgg.png';
+eggImage.src = 'images\chickenEgg.png';
 const heartGif = new Image();
-heartGif.src = '/images/heartGif.gif';
+heartGif.src = 'images\heartGif.gif';
 const durationInput = document.getElementById("duration");
-const nickiMinaj = new Audio('/images/Nicki_Minaj_-_Starships_[NaijaGreen.Com]_.mp3');
+const nickiMinaj = new Audio('images\Nicki_Minaj_-_Starships_[NaijaGreen.Com]_.mp3');
 nickiMinaj.volume = 0.019;
 nickiMinaj.loop = true;
-const michaelJackson = new Audio('/images/championAudio.mp4');
+const michaelJackson = new Audio('images\championAudio.mp4');
 michaelJackson.volume = 0.05;
 michaelJackson.loop = true;
-const survivor = new Audio('/images/winnerAudio.mp4');
+const survivor = new Audio('images\winnerAudio.mp4');
 survivor.volume = 0.025;
 survivor.loop = true;
-const britneySpears = new Audio('/images/youCanDoBetter.mp4');
+const britneySpears = new Audio('images\youCanDoBetter.mp4');
 britneySpears.volume = 0.025;
 britneySpears.loop = true;
-const saritHadad = new Audio('/images/youLost.mp3');
+const saritHadad = new Audio('images\youLost.mp3');
 saritHadad.volume = 0.03;
 saritHadad.loop = true;
 
@@ -92,7 +92,7 @@ function showLifeLeft() {
     const spacing = 50;
     const yOffset = 15;
     const heartImage = new Image();
-    heartImage.src = "/images/LifeSaver.gif";
+    heartImage.src = "images\LifeSaver.gif";
     ctx.fillStyle = "white";
     ctx.font = "20px Arial";
     const textWidth = ctx.measureText("Life left:").width;
@@ -426,7 +426,7 @@ function handleOutOfLives() {
     createFinalScoreDialogModal(
         'You Lost!',
         'You have run out of lives. You can try again.',
-        '/images/Sad_Gaming_Cat.jpg',
+        'images\Sad_Gaming_Cat.jpg',
         [
             {
                 label: 'Try again',
@@ -454,7 +454,7 @@ function handleOutOfTime() {
     createFinalScoreDialogModal(
         'You can do better!',
         `You have run out of time. You've scored (only..) ${userScore} points.`,
-        '/images/youCanDoBetterGif.gif',
+        'images\youCanDoBetterGif.gif',
         [
             {
                 label: 'Try again',
@@ -491,7 +491,7 @@ function handleWiner() {
     createFinalScoreDialogModal(
         'Winner!',
         ` `,
-        '/images/winnerGif.gif',
+        'images\winnerGif.gif',
         [
             {
                 label: 'Play again',
@@ -526,7 +526,7 @@ function handleChampion() {
     createFinalScoreDialogModal(
         'Champion!',
         ` `,
-        '/images/championGif.gif',
+        'images\championGif.gif',
         [
             {
                 label: 'Play again',
