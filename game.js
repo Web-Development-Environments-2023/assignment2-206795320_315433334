@@ -116,8 +116,9 @@ function showLifeLeft() {
     const heartHeight = 35;
     const spacing = 50;
     const yOffset = 15;
-    const heartImage = new Image();
-    heartImage.src = "\images\LifeSaver.gif";
+    // const heartImage = new Image();
+    // heartImage.src = "images\LifeSaver.gif";
+    const heartImage = srcOfHeartImg();
     ctx.fillStyle = "white";
     ctx.font = "20px Arial";
     const textWidth = ctx.measureText("Life left:").width;
@@ -127,6 +128,12 @@ function showLifeLeft() {
         const y = -11.5 + (Math.sin(heartPosition + (i * Math.PI * 0.5)) * 2);
         ctx.drawImage(heartImage, x, y + yOffset, heartWidth, heartHeight);
     }
+}
+
+function srcOfHeartImg(){
+    const heartImage = document.getElementById("LifeSaver");
+    const srcHeart = heartImage.getAttribute("src");
+    return srcHeart;
 }
 
 //draw userSpaceship
@@ -277,8 +284,6 @@ function collidesWithEgg(chicken, userSpaceship) {
 
 //draw chickeneggs
 function drawEgg(egg) {
-    const eggImage = new Image();
-    eggImage.src = 'images\chickenEgg.png';
     ctx.drawImage(eggImage, egg.x, egg.y, egg.width, egg.height);
 }
 
@@ -329,10 +334,19 @@ function createEgg() {
         width: 30,
         height: 40,
         speed: eggSpeed,
+        image: new Image(),
         broke: false
     };
     // Add the egg to the eggs array
+    const eggImage = srcOfUserShootImg();
+    egg.image.src = eggImage;
     eggs.push(egg);
+}
+
+function srcOfChickenEggImg(){
+    const eggImage = document.getElementById("chickenEgg");
+    const srcEgg = eggImage.getAttribute("src");
+    return srcEgg;
 }
 
 //draw chickens
