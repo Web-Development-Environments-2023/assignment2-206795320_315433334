@@ -116,9 +116,8 @@ function showLifeLeft() {
     const heartHeight = 35;
     const spacing = 50;
     const yOffset = 15;
-    // const heartImage = new Image();
-    // heartImage.src = "images\LifeSaver.gif";
-    const heartImage = srcOfHeartImg();
+    const heartImage = new Image();
+    heartImage.src = srcOfHeartImg();
     ctx.fillStyle = "white";
     ctx.font = "20px Arial";
     const textWidth = ctx.measureText("Life left:").width;
