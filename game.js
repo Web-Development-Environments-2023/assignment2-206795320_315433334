@@ -35,10 +35,8 @@ let chickenWidth = 50;
 let chickenHeight = 50;
 let heartPosition = 0;
 let assigningKey = false;
-var eggImage = new Image();
-eggImage.src = 'images\chickenEgg.png';
-const heartGif = new Image();
-heartGif.src = 'images\heartGif.gif';
+
+
 const durationInput = document.getElementById("duration");
 
 const nickiMinaj = document.getElementById("nickiMinaj");
@@ -114,11 +112,11 @@ function showLifeLeft() {
 }
 
 
-function srcOfHeartImg(){
-    const heart = document.getElementById("heartGif");
-    const srcHeart = heart.getAttribute("src");
-    return srcHeart;
-}
+// function srcOfHeartImg(){
+//     const heart = document.getElementById("heartGif");
+//     const srcHeart = heart.getAttribute("src");
+//     return srcHeart;
+// }
 
 //draw userSpaceship
 //Loop through each radio button to find the selected image for spaceship by user
@@ -132,6 +130,7 @@ function srcOfChosenCharacter(){
         }
     }
 }
+
 
 function srcOfChickenImg(){
     const chicken = document.getElementById("chickenImg");
@@ -268,7 +267,9 @@ function collidesWithEgg(chicken, userSpaceship) {
 
 //draw chickeneggs
 function drawEgg(egg) {
-        ctx.drawImage(eggImage, egg.x, egg.y, egg.width, egg.height);
+    const eggImage = new Image();
+    eggImage.src = 'images\chickenEgg.png';
+    ctx.drawImage(eggImage, egg.x, egg.y, egg.width, egg.height);
 }
 
 function updateEgg() {
