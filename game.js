@@ -263,8 +263,8 @@ function drawEgg(egg) {
     ctx.drawImage(eggImage, egg.x, egg.y, egg.width, egg.height);
 }
 
-const backgroundgif = new Image();
-backgroundgif.src = 'images\backgroundgif.gif';
+// const backgroundgif = new Image();
+// backgroundgif.src = 'images\backgroundgif.gif';
 
 function updateEgg() {
     if (eggs.length === 0 || eggs[eggs.length - 1].y >= canvas.height * 0.75) {
