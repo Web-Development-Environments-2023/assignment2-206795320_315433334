@@ -213,7 +213,6 @@
   } */
 
   #canvas-container {
-    background-image: url("images\canvasGif.gif");
     background-repeat: repeat;
     /* background-size: cover; */
     width: 100%;
