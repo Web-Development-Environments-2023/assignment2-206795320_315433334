@@ -44,21 +44,21 @@ let assigningKey = false;
 // const britneySpears = document.getElementById("britneySpears");
 // const saritHadad = document.getElementById("saritHadad");
 
-const nickiMinaj = new Audio('images\Nicki_Minaj_-_Starships_[NaijaGreen.Com]_.mp3');
-nickiMinaj.volume = 0.019;
-nickiMinaj.loop = true;
-const michaelJackson = new Audio('images\championAudio.mp3');
-michaelJackson.volume = 0.05;
-michaelJackson.loop = true;
-const survivor = new Audio('images\winnerAudio.mp3');
-survivor.volume = 0.025;
-survivor.loop = true;
-const britneySpears = new Audio('images\youCanDoBetter.mp3');
-britneySpears.volume = 0.025;
-britneySpears.loop = true;
-const saritHadad = new Audio('images\youLost.mp3');
-saritHadad.volume = 0.03;
-saritHadad.loop = true;
+// const nickiMinaj = new Audio('images\Nicki_Minaj_-_Starships_[NaijaGreen.Com]_.mp3');
+// nickiMinaj.volume = 0.019;
+// nickiMinaj.loop = true;
+// const michaelJackson = new Audio('images\championAudio.mp3');
+// michaelJackson.volume = 0.05;
+// michaelJackson.loop = true;
+// const survivor = new Audio('images\winnerAudio.mp3');
+// survivor.volume = 0.025;
+// survivor.loop = true;
+// const britneySpears = new Audio('images\youCanDoBetter.mp3');
+// britneySpears.volume = 0.025;
+// britneySpears.loop = true;
+// const saritHadad = new Audio('images\youLost.mp3');
+// saritHadad.volume = 0.03;
+// saritHadad.loop = true;
 
 
 
