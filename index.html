@@ -3,6 +3,48 @@
   <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css"/>
+    <script>
+      var audioFiles = [  
+        {
+          name: "nickiMinaj",    
+          src: "images\Nicki_Minaj_-_Starships_[NaijaGreen.Com]_.mp3",    
+          volume: 0.019,
+          loop: true
+        },  
+        {    
+          name: "michaelJackson",    
+          src: "images\championAudio.mp3",    
+          volume: 0.05,
+          loop: true
+        },
+        {    
+          name: "survivor",    
+          src: "images\winnerAudio.mp3",    
+          volume: 0.025,
+          loop: true
+        },
+        {    
+          name: "britneySpears",    
+          src: "images\youCanDoBetter.mp3",    
+          volume: 0.025,
+          loop: true
+        },
+        {    
+          name: "saritHadad",    
+          src: "images\youLost.mp3",    
+          volume: 0.03,
+          loop: true
+        }
+      ];
+      var audioObjects = {};
+      for (var i = 0; i < audioFiles.length; i++) {
+          var audio = new Audio();
+          audio.src = audioFiles[i].src;
+          audio.volume = audioFiles[i].volume;
+          audio.loop = audioFiles[i].loop;
+          audioObjects[audioFiles[i].name] = audio;
+      }
+      </script>
     <style>
       /* Add your CSS styles here */
       #canvas {
