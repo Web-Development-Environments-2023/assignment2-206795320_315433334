@@ -12,6 +12,7 @@ function menuNavigation(){
     
 }
 
+let assigningKey = false;
 function assignKey() {
     if (assigningKey) {
         alert("Please follow the rules.");

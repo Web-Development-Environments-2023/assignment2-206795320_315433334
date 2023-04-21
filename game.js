@@ -34,7 +34,6 @@ let Right = false;
 let chickenWidth = 50;
 let chickenHeight = 50;
 let heartPosition = 0;
-let assigningKey = false;
 
 
 // const durationInput = document.getElementById("duration");
