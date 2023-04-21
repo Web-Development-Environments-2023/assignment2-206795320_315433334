@@ -131,6 +131,11 @@ function srcOfChosenCharacter(){
     }
 }
 
+// function srcOfUserShootImg(){
+//     const shoot = document.getElementById("shootImg");
+//     const srcShoot = shoot.getAttribute("src");
+//     return srcShoot;
+// }
 
 function srcOfChickenImg(){
     const chicken = document.getElementById("chickenImg");
@@ -271,6 +276,9 @@ function drawEgg(egg) {
     eggImage.src = 'images\chickenEgg.png';
     ctx.drawImage(eggImage, egg.x, egg.y, egg.width, egg.height);
 }
+
+const backgroundgif = new Image();
+backgroundgif.src = 'images\backgroundgif.gif';
 
 function updateEgg() {
     if (eggs.length === 0 || eggs[eggs.length - 1].y >= canvas.height * 0.75) {
