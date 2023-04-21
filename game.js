@@ -294,7 +294,7 @@ function collidesWithEgg(chicken, userSpaceship) {
 
 //draw chickeneggs
 function drawEgg(egg) {
-    ctx.drawImage(eggImage, egg.x, egg.y, egg.width, egg.height);
+    ctx.drawImage(egg.image, egg.x, egg.y, egg.width, egg.height);
 }
 
 function updateEgg() {
