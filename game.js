@@ -34,9 +34,9 @@ let Right = false;
 let chickenWidth = 50;
 let chickenHeight = 50;
 let heartPosition = 0;
+const durationInput = document.getElementById("duration");
 
 
-// const durationInput = document.getElementById("duration");
 // const nickiMinaj = document.getElementById("nickiMinaj");
 // const michaelJackson = document.getElementById("michaelJackson");
 // const survivor = document.getElementById("survivor");
