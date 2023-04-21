@@ -264,4 +264,9 @@ function signUpCheck(){
 }
 
 window.addEventListener("load", menuNavigation, false);
-window.onloadstart = gotoHome();
+window.onloadstart = function() {
+    const backgroundgif = new Image();
+    backgroundgif.src = 'images\backgroundgif.gif';
+    document.body.style.backgroundImage = 'url(' + backgroundgif.src + ')';
+    gotoHome();
+};
