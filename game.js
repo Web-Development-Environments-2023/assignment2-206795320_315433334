@@ -116,8 +116,7 @@ function showLifeLeft() {
     const heartHeight = 35;
     const spacing = 50;
     const yOffset = 15;
-    const heartImage = new Image();
-    heartImage.src = srcOfHeartImg();
+    const heartImage = srcOfHeartImg();
     ctx.fillStyle = "white";
     ctx.font = "20px Arial";
     const textWidth = ctx.measureText("Life left:").width;
@@ -131,8 +130,10 @@ function showLifeLeft() {
 
 function srcOfHeartImg(){
     const heartImage = document.getElementById("LifeSaver");
-    const srcHeart = heartImage.getAttribute("src");
-    return srcHeart;
+    const imgSrc = heartImage.getAttribute("src");
+    const img = new Image();
+    img.src = imgSrc;
+    return img;
 }
 
 //draw userSpaceship
