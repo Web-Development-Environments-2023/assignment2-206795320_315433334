@@ -37,33 +37,46 @@ let heartPosition = 0;
 let assigningKey = false;
 
 
-const durationInput = document.getElementById("duration");
-const nickiMinaj = document.getElementById("nickiMinaj");
-const michaelJackson = document.getElementById("michaelJackson");
-const survivor = document.getElementById("survivor");
-const britneySpears = document.getElementById("britneySpears");
-const saritHadad = document.getElementById("saritHadad");
+// const durationInput = document.getElementById("duration");
+// const nickiMinaj = document.getElementById("nickiMinaj");
+// const michaelJackson = document.getElementById("michaelJackson");
+// const survivor = document.getElementById("survivor");
+// const britneySpears = document.getElementById("britneySpears");
+// const saritHadad = document.getElementById("saritHadad");
 
-// const nickiMinaj = new Audio('images\Nicki_Minaj_-_Starships_[NaijaGreen.Com]_.mp3');
+const nickiMinaj = new Audio('images\Nicki_Minaj_-_Starships_[NaijaGreen.Com]_.mp3');
 nickiMinaj.volume = 0.019;
 nickiMinaj.loop = true;
-// const michaelJackson = new Audio('mages\championAudio.mp4');
+const michaelJackson = new Audio('images\championAudio.mp3');
 michaelJackson.volume = 0.05;
 michaelJackson.loop = true;
-// const survivor = new Audio('images\winnerAudio.mp4');
+const survivor = new Audio('images\winnerAudio.mp3');
 survivor.volume = 0.025;
 survivor.loop = true;
-// const britneySpears = new Audio('images\youCanDoBetter.mp4');
+const britneySpears = new Audio('images\youCanDoBetter.mp3');
 britneySpears.volume = 0.025;
 britneySpears.loop = true;
-// const saritHadad = new Audio('images\youLost.mp3');
+const saritHadad = new Audio('images\youLost.mp3');
 saritHadad.volume = 0.03;
 saritHadad.loop = true;
 
 
 
 
+{/* <audio id = "nickiMinaj" preload = "auto">
+<source src = "images\Nicki_Minaj_-_Starships_[NaijaGreen.Com]_.mp3" type = "audio/ogg"></audio>
 
+<audio id = "michaelJackson" preload = "auto">
+<source src = "images\championAudio.mp3" type = "audio/ogg"></audio>
+
+<audio id = "survivor" preload = "auto">
+<source src = "images\winnerAudio.mp3" type = "audio/ogg"></audio>
+
+<audio id = "britneySpears" preload = "auto">
+<source src = "images\youCanDoBetter.mp3" type = "audio/ogg"></audio>
+
+<audio id = "saritHadad" preload = "auto">
+<source src = "images\youLost.mp3" type = "audio/ogg"></audio> */}
 
 
 
