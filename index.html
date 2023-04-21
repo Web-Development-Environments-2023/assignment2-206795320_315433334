@@ -38,10 +38,12 @@
       ];
       const audioObjects = {};
       for (let i = 0; i < audioFiles.length; i++) {
-          const audio = new Audio(audioFiles[i].src);
-          audio.volume = audioFiles[i].volume;
-          audio.loop = audioFiles[i].loop;
-          audioObjects[audioFiles[i].id] = audio;
+        const audio = new Audio();
+        audio.src = audioFiles[i].src;
+        audio.volume = audioFiles[i].volume;
+        audio.loop = audioFiles[i].loop;
+        audio.preload = "auto";
+        audioObjects[audioFiles[i].id] = audio;
       }
       </script>
     <style>
