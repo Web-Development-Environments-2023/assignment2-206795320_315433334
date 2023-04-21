@@ -35,7 +35,17 @@ let chickenWidth = 50;
 let chickenHeight = 50;
 let heartPosition = 0;
 const durationInput = document.getElementById("duration");
+const SadGamingCat = document.getElementById("SadGamingCat");
+const srcSadGamingCat = SadGamingCat.getAttribute("src");
 
+const youCanDoBetterGif = document.getElementById("youCanDoBetterGif");
+const srcyouCanDoBetterGif = youCanDoBetterGif.getAttribute("src");
+
+const winnerGif = document.getElementById("winnerGif");
+const srcwinnerGif = winnerGif.getAttribute("src");
+
+const championGif = document.getElementById("championGif");
+const srcchampionGif = championGif.getAttribute("src");
 
 // const nickiMinaj = document.getElementById("nickiMinaj");
 // const michaelJackson = document.getElementById("michaelJackson");
@@ -338,7 +348,7 @@ function createEgg() {
         broke: false
     };
     // Add the egg to the eggs array
-    const eggImage = srcOfUserShootImg();
+    const eggImage = srcOfChickenEggImg();
     egg.image.src = eggImage;
     eggs.push(egg);
 }
@@ -460,7 +470,7 @@ function handleOutOfLives() {
     createFinalScoreDialogModal(
         'You Lost!',
         'You have run out of lives. You can try again.',
-        'images\Sad_Gaming_Cat.jpg',
+        srcSadGamingCat,
         [
             {
                 label: 'Try again',
@@ -488,7 +498,7 @@ function handleOutOfTime() {
     createFinalScoreDialogModal(
         'You can do better!',
         `You have run out of time. You've scored (only..) ${userScore} points.`,
-        'images\youCanDoBetterGif.gif',
+        srcyouCanDoBetterGif,
         [
             {
                 label: 'Try again',
@@ -525,7 +535,7 @@ function handleWiner() {
     createFinalScoreDialogModal(
         'Winner!',
         ` `,
-        'images\winnerGif.gif',
+        srcwinnerGif,
         [
             {
                 label: 'Play again',
@@ -560,7 +570,7 @@ function handleChampion() {
     createFinalScoreDialogModal(
         'Champion!',
         ` `,
-        'images\championGif.gif',
+        srcchampionGif,
         [
             {
                 label: 'Play again',
