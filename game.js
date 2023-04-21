@@ -38,7 +38,6 @@ let assigningKey = false;
 
 
 const durationInput = document.getElementById("duration");
-
 const nickiMinaj = document.getElementById("nickiMinaj");
 const michaelJackson = document.getElementById("michaelJackson");
 const survivor = document.getElementById("survivor");
@@ -111,13 +110,6 @@ function showLifeLeft() {
     }
 }
 
-
-// function srcOfHeartImg(){
-//     const heart = document.getElementById("heartGif");
-//     const srcHeart = heart.getAttribute("src");
-//     return srcHeart;
-// }
-
 //draw userSpaceship
 //Loop through each radio button to find the selected image for spaceship by user
 function srcOfChosenCharacter(){
@@ -130,12 +122,6 @@ function srcOfChosenCharacter(){
         }
     }
 }
-
-// function srcOfUserShootImg(){
-//     const shoot = document.getElementById("shootImg");
-//     const srcShoot = shoot.getAttribute("src");
-//     return srcShoot;
-// }
 
 function srcOfChickenImg(){
     const chicken = document.getElementById("chickenImg");

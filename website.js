@@ -263,16 +263,12 @@ function signUpCheck(){
     return true;
 }
 
-const imagePath = document.getElementById('backgroundgif').src;
-
 // Set the background image of the body element
+const imagePath = document.getElementById('backgroundgif').src;
 document.body.style.backgroundImage = `url(${imagePath})`;
+document.body.style.backgroundRepeat = "repeat";
+document.body.style.backgroundPosition = "center center";
+document.body.style.backgroundSize = "cover";
 
 window.addEventListener("load", menuNavigation, false);
-window.onloadstart = 
-// function() {
-//     const backgroundgif = new Image();
-//     backgroundgif.src = 'images\backgroundgif.gif';
-//     document.body.style.backgroundImage = 'url(' + backgroundgif.src + ')';
-    gotoHome();
-// };
+window.onloadstart = gotoHome();
