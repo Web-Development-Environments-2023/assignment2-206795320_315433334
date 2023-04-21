@@ -273,4 +273,4 @@ document.body.style.backgroundRepeat = "repeat";
 document.body.style.backgroundSize = "cover";
 
 window.addEventListener("load", menuNavigation, false);
-window.onloadstart = gotoHome();
+// window.onloadstart = gotoHome();
