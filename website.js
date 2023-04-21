@@ -264,10 +264,11 @@ function signUpCheck(){
 }
 
 // Set the background image of the body element
+// const backgroundgif = new Image();
+// backgroundgif.src = 'images\backgroundgif.gif';
 const imagePath = document.getElementById('backgroundgif').src;
-document.body.style.backgroundImage = `url(${imagePath})`;
+document.body.style.backgroundImage = `url(${backgroundgif.src})`;
 document.body.style.backgroundRepeat = "repeat";
-document.body.style.backgroundPosition = "center center";
 document.body.style.backgroundSize = "cover";
 
 window.addEventListener("load", menuNavigation, false);
