@@ -16,10 +16,14 @@
   <body> 
     <!-- <img src="images\backgroundgif.gif" id="backgroundgif" style="display: none;"> -->
     <script>
-    document.body.style.backgroundImage = "url('images\backgroundgif.gif')";
-    document.body.style.backgroundRepeat = "repeat";
-    document.body.style.backgroundPosition = "center center";
-    document.body.style.backgroundSize = "cover";
+      const bgImg = new Image();
+      bgImg.src = "images\backgroundgif.gif";
+      bgImg.onload = function() {
+        document.body.style.backgroundImage = "url('" + bgImg.src + "')";
+        document.body.style.backgroundRepeat = "no-repeat";
+        document.body.style.backgroundPosition = "center center";
+        document.body.style.backgroundSize = "cover";
+      };
     </script>
 
     <audio id = "nickiMinaj" preload = "auto">
