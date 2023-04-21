@@ -231,8 +231,8 @@ function updateUserShoot(){
     const allChickensFried = chickensArray.every(row => row.every(chicken => chicken.fried));
     if (allChickensFried) {
         inGame = false;
-        audioObjects["nickiMinaj"].pause();
-        audioObjects["nickiMinaj"].currentTime = 0;
+        audioObjects.nickiMinaj.pause();
+        audioObjects.nickiMinaj.currentTime = 0;
         handleChampion();
         stopTimer();
     }
@@ -290,8 +290,8 @@ function updateEgg() {
                     playerLife -= 1;
                     if (playerLife == 0) {
                         inGame = false;
-                        audioObjects["nickiMinaj"].pause();
-                        audioObjects["nickiMinaj"].currentTime = 0;
+                        audioObjects.nickiMinaj.pause();
+                        audioObjects.nickiMinaj.currentTime = 0;
                         handleOutOfLives();
                     }
                     userSpaceship.x = spaceshipX;
@@ -436,7 +436,7 @@ function createFinalScoreDialogModal(title, message, imageSrc, buttons, dialogCl
 
 // handle when the player runs out of lives
 function handleOutOfLives() {
-    audioObjects["saritHadad"].play();
+    audioObjects.saritHadad.play();
     createFinalScoreDialogModal(
         'You Lost!',
         'You have run out of lives. You can try again.',
@@ -445,8 +445,8 @@ function handleOutOfLives() {
             {
                 label: 'Try again',
                 action: () => {
-                    audioObjects["saritHadad"].pause();
-                    audioObjects["saritHadad"].currentTime = 0;
+                    audioObjects.saritHadad.pause();
+                    audioObjects.saritHadad.currentTime = 0;
                     closeDialogModal();
                     startGaming();
                 },
@@ -457,14 +457,14 @@ function handleOutOfLives() {
     );
     const modalElement = document.getElementById('out-of-lives-dialog');
     modalElement.addEventListener('hide', () => {
-        audioObjects["saritHadad"].pause();
-        audioObjects["saritHadad"].currentTime = 0;
+        audioObjects.saritHadad.pause();
+        audioObjects.saritHadad.currentTime = 0;
     });
 }
   
 // handle when the player runs out of time
 function handleOutOfTime() {
-    audioObjects["britneySpears"].play();
+    audioObjects.britneySpears.play();
     createFinalScoreDialogModal(
         'You can do better!',
         `You have run out of time. You've scored (only..) ${userScore} points.`,
@@ -473,8 +473,8 @@ function handleOutOfTime() {
             {
                 label: 'Try again',
                 action: () => {
-                    audioObjects["britneySpears"].pause();
-                    audioObjects["britneySpears"].currentTime = 0;
+                    audioObjects.britneySpears.pause();
+                    audioObjects.britneySpears.currentTime = 0;
                     closeDialogModal();
                     startGaming();
                 },
@@ -482,8 +482,8 @@ function handleOutOfTime() {
             {
                 label: 'Change configuration',
                 action: () => {
-                    audioObjects["britneySpears"].pause();
-                    audioObjects["britneySpears"].currentTime = 0;
+                    audioObjects.britneySpears.pause();
+                    audioObjects.britneySpears.currentTime = 0;
                     closeDialogModal();
                     gotoConfiguration();
                 },
@@ -494,14 +494,14 @@ function handleOutOfTime() {
     );
     const modalElement = document.getElementById('out-of-time-dialog');
     modalElement.addEventListener('hide', () => {
-        audioObjects["britneySpears"].pause();
-        audioObjects["britneySpears"].currentTime = 0;
+        audioObjects.britneySpears.pause();
+        audioObjects.britneySpears.currentTime = 0;
     });
 }
   
 // handle when the player wins
 function handleWiner() {
-    audioObjects["survivor"].play();
+    audioObjects.survivor.play();
     createFinalScoreDialogModal(
         'Winner!',
         ` `,
@@ -510,8 +510,8 @@ function handleWiner() {
             {
                 label: 'Play again',
                 action: () => {
-                    audioObjects["survivor"].pause();
-                    audioObjects["survivor"].currentTime = 0;
+                    audioObjects.survivor.pause();
+                    audioObjects.survivor.currentTime = 0;
                     closeDialogModal();
                     startGaming();
                 },
@@ -529,14 +529,14 @@ function handleWiner() {
     );
     const modalElement = document.getElementById('out-of-win-dialog');
     modalElement.addEventListener('hide', () => {
-        audioObjects["survivor"].pause();
-        audioObjects["survivor"].currentTime = 0;
+        audioObjects.survivor.pause();
+        audioObjects.survivor.currentTime = 0;
     });
 }
 
 // handle when the player is champion
 function handleChampion() {
-    audioObjects["michaelJackson"].play();
+    audioObjects.michaelJackson.play();
     createFinalScoreDialogModal(
         'Champion!',
         ` `,
@@ -545,8 +545,8 @@ function handleChampion() {
             {
                 label: 'Play again',
                 action: () => {
-                    audioObjects["michaelJackson"].pause();
-                    audioObjects["michaelJackson"].currentTime = 0;
+                    audioObjects.michaelJackson.pause();
+                    audioObjectsmichaelJackson.currentTime = 0;
                     closeDialogModal();
                     startGaming();
                 },
@@ -564,8 +564,8 @@ function handleChampion() {
     );
     const modalElement = document.getElementById('out-of-champion-dialog');
     modalElement.addEventListener('hide', () => {
-        audioObjects["michaelJackson"].pause();
-        audioObjects["michaelJackson"].currentTime = 0;
+        audioObjects.michaelJackson.pause();
+        audioObjectsmichaelJackson.currentTime = 0;
     });
 }
 
@@ -605,15 +605,15 @@ function startTimer(duration) {
         timer--;
         if (timer < 0 && userScore < 100) {
             inGame = false;
-            audioObjects["nickiMinaj"].pause();
-            audioObjects["nickiMinaj"].currentTime = 0;
+            audioObjects.nickiMinaj.pause();
+            audioObjects.nickiMinaj.currentTime = 0;
             stopTimer();
             handleOutOfTime();
         }
         else if (timer < 0 && userScore >= 100) {
             inGame = false;
-            audioObjects["nickiMinaj"].pause();
-            audioObjects["nickiMinaj"].currentTime = 0;
+            audioObjects.nickiMinaj.pause();
+            audioObjects.nickiMinaj.currentTime = 0;
             stopTimer();
             handleWiner();
         }
@@ -721,7 +721,7 @@ function start(){
 
 function startGaming() {
     pattern = " Go!";
-    audioObjects["nickiMinaj"].play();
+    audioObjects.nickiMinaj.play();
     canvas = document.getElementById("canvas");
     ctx = canvas.getContext("2d");
     // showCanvas();
@@ -753,8 +753,8 @@ function startGaming() {
 function stopGame() {
     inGame = false;
     // hideCanvas();
-    audioObjects["nickiMinaj"].pause();
-    audioObjects["nickiMinaj"].currentTime = 0;
+    audioObjects.nickiMinaj.pause();
+    audioObjects.nickiMinaj.currentTime = 0;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     document.getElementById("Home").style.display="flex";
 }
