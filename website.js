@@ -32,6 +32,37 @@ function assignKey() {
     }
 }
 
+// const keys = document.querySelectorAll('.key');
+
+// keys.forEach(key => {
+//   key.addEventListener('click', () => {
+//     const keyCode = key.getAttribute('data-key');
+//     console.log(keyCode);
+//   });
+// });
+
+
+// // Get the input element and store it in a variable
+// const shootKeyInput = document.getElementById('shootkey');
+
+// // Get all the keys on the virtual keyboard
+// const keys = document.querySelectorAll('.key');
+
+// // Create a variable to store the last clicked key's data-key value
+// let shootKey = null;
+
+// // Add a click event listener to each key
+// keys.forEach(key => {
+//   key.addEventListener('click', () => {
+//     // Update the shootKey variable with the clicked key's data-key value
+//     shootKey = key.getAttribute('data-key');
+//   });
+// });
+
+
+
+
+
 function buttonNavigation(){
     //buttons and navigation
     document.getElementById("submit").addEventListener("click", registerCheck);
@@ -40,6 +71,7 @@ function buttonNavigation(){
     document.getElementById("startGame-button").addEventListener("click", function(event) {
         if (document.getElementById("configuration-form").checkValidity()) {
             // the form is valid, continue to load the game
+            handleUserShoot();
             startGaming();            
         }
         else {
@@ -271,6 +303,13 @@ const imagePath = document.getElementById('backgroundgif').src;
 document.body.style.backgroundImage = `url(${backgroundgif.src})`;
 document.body.style.backgroundRepeat = "repeat";
 document.body.style.backgroundSize = "cover";
+
+const canvasBg = document.getElementById('canvas-bg').src;
+const canvasContainer = document.getElementById('canvas-container');
+canvasContainer.style.backgroundImage = `url(${canvasBg})`;
+canvasContainer.style.backgroundRepeat = "repeat";
+canvasContainer.style.backgroundSize = "50%";
+canvasContainer.style.backgroundPosition = "center center";
 
 window.addEventListener("load", menuNavigation, false);
 // window.onloadstart = gotoHome();

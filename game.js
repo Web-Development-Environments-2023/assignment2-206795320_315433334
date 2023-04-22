@@ -89,10 +89,15 @@ const srcchampionGif = championGif.getAttribute("src");
 
 
 const nickiMinaj = document.getElementById("nickiMinaj");
+nickiMinaj.volume = 0.019;
 const michaelJackson = document.getElementById("michaelJackson");
+michaelJackson.volume = 0.05;
 const survivor = document.getElementById("survivor");
+survivor.volume = 0.025;
 const britneySpears = document.getElementById("britneySpears");
+britneySpears.volume = 0.025;
 const saritHadad = document.getElementById("saritHadad");
+saritHadad.volume = 0.03;
 
 
 
@@ -686,11 +691,11 @@ function ArrowRight(){
     drawUserSpaceship(prevSpaceshipX, prevSpaceshipY);
 }
 
-function handleKeyDown(event) {
-    if (event.code === document.getElementById("shootkey").value) {
-        handleUserShoot();
-    }
-}
+
+
+
+
+
 
 function handleUserShoot() {
     userShoot = {
@@ -751,6 +756,10 @@ function start(){
 
 function startGaming() {
     pattern = " Go!";
+    if (!nickiMinaj.paused) {
+        nickiMinaj.currentTime = 0;
+        nickiMinaj.play();
+    }
     nickiMinaj.play();
     canvas = document.getElementById("canvas");
     ctx = canvas.getContext("2d");
