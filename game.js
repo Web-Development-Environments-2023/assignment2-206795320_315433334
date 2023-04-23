@@ -35,59 +35,18 @@ let chickenWidth = 50;
 let chickenHeight = 50;
 let heartPosition = 0;
 const durationInput = document.getElementById("duration");
+
+// gifs for final score
 const SadGamingCat = document.getElementById("SadGamingCat");
 const srcSadGamingCat = SadGamingCat.getAttribute("src");
-
 const youCanDoBetterGif = document.getElementById("youCanDoBetterGif");
 const srcyouCanDoBetterGif = youCanDoBetterGif.getAttribute("src");
-
 const winnerGif = document.getElementById("winnerGif");
 const srcwinnerGif = winnerGif.getAttribute("src");
-
 const championGif = document.getElementById("championGif");
 const srcchampionGif = championGif.getAttribute("src");
 
-// const nickiMinaj = document.getElementById("nickiMinaj");
-// const michaelJackson = document.getElementById("michaelJackson");
-// const survivor = document.getElementById("survivor");
-// const britneySpears = document.getElementById("britneySpears");
-// const saritHadad = document.getElementById("saritHadad");
-
-// const nickiMinaj = new Audio('images\Nicki_Minaj_-_Starships_[NaijaGreen.Com]_.mp3');
-// nickiMinaj.volume = 0.019;
-// nickiMinaj.loop = true;
-// const michaelJackson = new Audio('images\championAudio.mp3');
-// michaelJackson.volume = 0.05;
-// michaelJackson.loop = true;
-// const survivor = new Audio('images\winnerAudio.mp3');
-// survivor.volume = 0.025;
-// survivor.loop = true;
-// const britneySpears = new Audio('images\youCanDoBetter.mp3');
-// britneySpears.volume = 0.025;
-// britneySpears.loop = true;
-// const saritHadad = new Audio('images\youLost.mp3');
-// saritHadad.volume = 0.03;
-// saritHadad.loop = true;
-
-
-
-
-/* <audio id = "nickiMinaj" preload = "auto">
-<source src = "images\Nicki_Minaj_-_Starships_[NaijaGreen.Com]_.mp3" type = "audio/ogg"></audio>
-
-<audio id = "michaelJackson" preload = "auto">
-<source src = "images\championAudio.mp3" type = "audio/ogg"></audio>
-
-<audio id = "survivor" preload = "auto">
-<source src = "images\winnerAudio.mp3" type = "audio/ogg"></audio>
-
-<audio id = "britneySpears" preload = "auto">
-<source src = "images\youCanDoBetter.mp3" type = "audio/ogg"></audio>
-
-<audio id = "saritHadad" preload = "auto">
-<source src = "images\youLost.mp3" type = "audio/ogg"></audio> */
-
-
+// audios for final score
 const nickiMinaj = document.getElementById("nickiMinaj");
 nickiMinaj.volume = 0.019;
 const michaelJackson = document.getElementById("michaelJackson");
@@ -192,14 +151,42 @@ function drawUserSpaceship(x, y){
 }
 
 function moveChickens() {
-    if (edge == "left" && chickensArray[0][0].x <= 5) {
+    let leftmostAliveColumn = 0;
+    let rightmostAliveColumn = 4;
+    for (let j = 0; j < 5; j++) {
+        let hasLiveChickens = false;
+        for (let i = 0; i < 4; i++) {
+            if (chickensArray[i][j].fried == false) {
+                hasLiveChickens = true;
+                break;
+            }
+        }
+        if (hasLiveChickens) {
+            leftmostAliveColumn = j;
+            break;
+        }
+    }
+    for (let j = 4; j >= 0; j--) {
+        let hasLiveChickens = false;
+        for (let i = 0; i < 4; i++) {
+            if (chickensArray[i][j].fried == false) {
+                hasLiveChickens = true;
+                break;
+            }
+        }
+        if (hasLiveChickens) {
+            rightmostAliveColumn = j;
+            break;
+        }
+    }
+    if (edge == "left" && chickensArray[0][leftmostAliveColumn].x <= 5) {
         edge = "right";
     }
-    else if (edge == "right" && chickensArray[0][4].x + chickenWidth >= canvas.width) { //TODO: change this to dinamically
+    else if (edge == "right" && chickensArray[0][rightmostAliveColumn].x + chickenWidth >= canvas.width) { //TODO: change this to dinamically
         edge = "left";
     }
     for (let i = 0; i < 4; i++) {
-        for (let j = 0; j < 5; j++) {
+        for (let j = leftmostAliveColumn; j <= rightmostAliveColumn; j++) {
             move(chickensArray[i][j]);
         }
     }
@@ -398,7 +385,7 @@ function createChickensArray(rows, cols) {
                 width: chickenWidth,
                 height: chickenHeight,
                 image: new Image(),
-                speed: chickenSpeed, //check
+                speed: chickenSpeed,
                 score: score,
                 fried: false
             };
@@ -428,7 +415,6 @@ function closeDialogModal() {
         dialogContainer.parentNode.removeChild(dialogContainer);
     }
 }
-  
 
 // create the dialog modals
 function createFinalScoreDialogModal(title, message, imageSrc, buttons, dialogClass, id) {
@@ -691,11 +677,11 @@ function ArrowRight(){
     drawUserSpaceship(prevSpaceshipX, prevSpaceshipY);
 }
 
-
-
-
-
-
+function handleKeyDown(event) {
+    if (event.code === document.getElementById("shootkey").value) {
+        handleUserShoot();
+    }
+}
 
 function handleUserShoot() {
     userShoot = {
@@ -744,7 +730,6 @@ function reset(){
     stopTimer();
 }
 
-
 function start(){
     inGame = true;
     reset();
@@ -763,7 +748,6 @@ function startGaming() {
     nickiMinaj.play();
     canvas = document.getElementById("canvas");
     ctx = canvas.getContext("2d");
-    // showCanvas();
     spaceshipX = canvas.width/2 -60;
     spaceshipY = canvas.height -115;
     userSpaceship = createSpaceship();
@@ -791,7 +775,6 @@ function startGaming() {
 
 function stopGame() {
     inGame = false;
-    // hideCanvas();
     nickiMinaj.pause();
     nickiMinaj.currentTime = 0;
     ctx.clearRect(0, 0, canvas.width, canvas.height);

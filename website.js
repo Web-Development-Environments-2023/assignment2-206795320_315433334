@@ -32,37 +32,6 @@ function assignKey() {
     }
 }
 
-// const keys = document.querySelectorAll('.key');
-
-// keys.forEach(key => {
-//   key.addEventListener('click', () => {
-//     const keyCode = key.getAttribute('data-key');
-//     console.log(keyCode);
-//   });
-// });
-
-
-// // Get the input element and store it in a variable
-// const shootKeyInput = document.getElementById('shootkey');
-
-// // Get all the keys on the virtual keyboard
-// const keys = document.querySelectorAll('.key');
-
-// // Create a variable to store the last clicked key's data-key value
-// let shootKey = null;
-
-// // Add a click event listener to each key
-// keys.forEach(key => {
-//   key.addEventListener('click', () => {
-//     // Update the shootKey variable with the clicked key's data-key value
-//     shootKey = key.getAttribute('data-key');
-//   });
-// });
-
-
-
-
-
 function buttonNavigation(){
     //buttons and navigation
     document.getElementById("submit").addEventListener("click", registerCheck);
@@ -71,7 +40,6 @@ function buttonNavigation(){
     document.getElementById("startGame-button").addEventListener("click", function(event) {
         if (document.getElementById("configuration-form").checkValidity()) {
             // the form is valid, continue to load the game
-            handleUserShoot();
             startGaming();            
         }
         else {
@@ -85,7 +53,6 @@ function buttonNavigation(){
     document.getElementById("stopGame-button").addEventListener("click",  stopGame);
     document.addEventListener("DOMContentLoaded", function() {
         configurationFilled();
-        // document.getElementById("configuration-form").addEventListener("input", checkForm);
     });
     document.getElementById("login_home").addEventListener("click", gotoLogin);
     document.getElementById("signup_home").addEventListener("click", gotoSignup);
@@ -296,9 +263,6 @@ function signUpCheck(){
     return true;
 }
 
-// Set the background image of the body element
-// const backgroundgif = new Image();
-// backgroundgif.src = 'images\backgroundgif.gif';
 const imagePath = document.getElementById('backgroundgif').src;
 document.body.style.backgroundImage = `url(${backgroundgif.src})`;
 document.body.style.backgroundRepeat = "repeat";
@@ -312,4 +276,4 @@ canvasContainer.style.backgroundSize = "50%";
 canvasContainer.style.backgroundPosition = "center center";
 
 window.addEventListener("load", menuNavigation, false);
-// window.onloadstart = gotoHome();
+window.onloadstart = gotoHome();
