@@ -48,7 +48,7 @@ const srcchampionGif = championGif.getAttribute("src");
 
 // audios for final score
 const nickiMinaj = document.getElementById("nickiMinaj");
-nickiMinaj.volume = 0.019;
+nickiMinaj.volume = 0.009;
 const michaelJackson = document.getElementById("michaelJackson");
 michaelJackson.volume = 0.05;
 const survivor = document.getElementById("survivor");
@@ -58,9 +58,13 @@ britneySpears.volume = 0.025;
 const saritHadad = document.getElementById("saritHadad");
 saritHadad.volume = 0.03;
 
-
-
-
+// audios for shooting eggs and 
+const chickenDie = document.getElementById("chickenDie");
+chickenDie.volume = 0.019;
+const spaceshipDie = document.getElementById("spaceshipDie");
+spaceshipDie.volume = 0.019;
+const fart1 = document.getElementById("fart1");
+fart1.volume = 0.019;
 
 
 
@@ -225,6 +229,11 @@ function updateUserShoot(){
                     const chicken = chickensArray[i][j];
                     if (!(chicken.fried) && (collidesWithUserShoot(chicken, userShoot))) {
                         chicken.fried = true;
+                        chickenDie.play();
+                        setTimeout(() => {
+                            chickenDie.pause();
+                            chickenDie.currentTime = 0;
+                        }, 1000);
                         userShoot.shootAlive = false;
                         userScore += chicken.score;
                     }
@@ -292,6 +301,12 @@ function drawEgg(egg) {
 function updateEgg() {
     if (eggs.length === 0 || eggs[eggs.length - 1].y >= canvas.height * 0.75) {
         createEgg();
+        fart1.play();
+        fart1.currentTime = 0;
+        setTimeout(() => {
+            fart1.pause();
+            fart1.currentTime = 0;
+        }, 2000);
     }
     const eggsInRange = [];
     for (let i = 0; i < eggs.length; i++) {
@@ -301,6 +316,12 @@ function updateEgg() {
             if (egg.y > 0 && egg.y < canvas.height) {
                 if (collidesWithEgg(egg, userSpaceship)) {
                     playerLife -= 1;
+                    spaceshipDie.play();
+                    spaceshipDie.currentTime = 0;
+                    setTimeout(() => {
+                        spaceshipDie.pause();
+                        spaceshipDie.currentTime = 0;
+                    }, 2000);
                     if (playerLife == 0) {
                         inGame = false;
                         nickiMinaj.pause();

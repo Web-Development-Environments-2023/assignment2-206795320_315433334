@@ -2,6 +2,7 @@
         //after change configuration (Britney spears) it send to login - we want configuration only
 
 function menuNavigation(){
+    gotoHome();
     buttonNavigation();
     document.getElementById("menuSign up").addEventListener("click", gotoSignup);
     document.getElementById("menuLogin").addEventListener("click", gotoLogin);
@@ -35,9 +36,14 @@ function assignKey() {
 function buttonNavigation(){
     //buttons and navigation
     document.getElementById("submit").addEventListener("click", registerCheck);
-    document.getElementById("assignkey").addEventListener("click", assignKey);
+    // document.getElementById("assignkey").addEventListener("click", assignKey);
+    document.getElementById("assignkey").addEventListener("click", function(event) {
+        event.preventDefault(); // Prevent default behavior of navigating to a new page
+        assignKey();
+    });
     document.getElementById("startbutton").addEventListener("click", gotoGame_configuration);
     document.getElementById("startGame-button").addEventListener("click", function(event) {
+        this.blur();
         if (document.getElementById("configuration-form").checkValidity()) {
             // the form is valid, continue to load the game
             startGaming();            
@@ -276,4 +282,7 @@ canvasContainer.style.backgroundSize = "50%";
 canvasContainer.style.backgroundPosition = "center center";
 
 window.addEventListener("load", menuNavigation, false);
-window.onloadstart = gotoHome();
+// document.addEventListener("DOMContentLoaded",function() {
+//     gotoHome();
+// });
+// window.onloadstart = gotoHome();
