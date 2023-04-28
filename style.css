@@ -154,12 +154,11 @@
     position: absolute;
     background-color: #fefefe;
     margin: 30px;
-    padding-top: 30px;
-    width: 70%;
-    height: 70%; /* Full height */
-    margin-left: 100px;
-
-
+    padding-top: 0px;
+    padding-left: 20px;
+    width: 85%;
+    height: 85%; /* Full height */
+    margin-left: 45px;
   }
 
 .closeButton{
