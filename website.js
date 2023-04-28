@@ -70,6 +70,8 @@ function buttonNavigation(){
         const passwordInput = document.getElementById("password_login").value;
         const isValidUser = checkUser(usernameInput, passwordInput);
         if (isValidUser) {
+            currentUserLogedIn = usernameInput;
+            highScores =[];
             document.getElementById("loginForm").reset();
             document.getElementById("Login").style.display = "none";
             document.getElementById("Configuration").style.display = "flex";
@@ -138,6 +140,7 @@ function gotoGame_configuration(){
     else{
         alert("You have to fill the configuration before.")
         document.getElementById("Configuration").style.display="flex";
+        document.getElementById("Configuration").reset();
     }
 }
 
@@ -159,11 +162,23 @@ function gotoLogin(){
     document.getElementById("Login").style.display = "flex";
 }
 
+function gotoHighScore(){
+    document.getElementById("Home").style.display="none";
+    document.getElementById("Sign up").style.display="none";
+    document.getElementById("Game").style.display="none";
+    document.getElementById("About").style.display="none";
+    document.getElementById("Configuration").style.display = "none";
+    document.getElementById("Login").style.display="none";
+    document.getElementById("highscore-table").style.display="table";
+}
+
 function gotoConfiguration(){
     const usernameInput = document.getElementById("username_login").value;
     const passwordInput = document.getElementById("password_login").value;
     const isValidUser = checkUser(usernameInput, passwordInput);
     if (isValidUser) {
+        currentUserLogedIn = usernameInput;
+        highScores =[];
         document.getElementById("Home").style.display="none";
         document.getElementById("Sign up").style.display="none";
         document.getElementById("Login").style.display="none";
@@ -189,6 +204,7 @@ function gotoHome(){
     document.getElementById("Configuration").style.display="none";
     document.getElementById("About").style.display="none";
     document.getElementById("Home").style.display = "flex";
+    document.getElementById("highscore-container").style.display="none";
 }
 
 function gotoGame(){
@@ -231,7 +247,7 @@ function registerCheck(){
         document.getElementById("Game").style.display="none";
         alert("You have successfully registered!");
         document.getElementById("myForm").reset();
-        document.getElementById("Configuration").style.display = "flex";
+        document.getElementById("Login").style.display = "flex";
     }
 }
 
@@ -282,7 +298,3 @@ canvasContainer.style.backgroundSize = "50%";
 canvasContainer.style.backgroundPosition = "center center";
 
 window.addEventListener("load", menuNavigation, false);
-// document.addEventListener("DOMContentLoaded",function() {
-//     gotoHome();
-// });
-// window.onloadstart = gotoHome();

@@ -35,6 +35,8 @@ let chickenWidth = 50;
 let chickenHeight = 50;
 let heartPosition = 0;
 const durationInput = document.getElementById("duration");
+let highScores =[];
+var currentUserLogedIn;
 
 // gifs for final score
 const SadGamingCat = document.getElementById("SadGamingCat");
@@ -478,6 +480,7 @@ function createFinalScoreDialogModal(title, message, imageSrc, buttons, dialogCl
 
 // handle when the player runs out of lives
 function handleOutOfLives() {
+    addScore(currentUserLogedIn,userScore);
     saritHadad.play();
     createFinalScoreDialogModal(
         'You Lost!',
@@ -493,6 +496,16 @@ function handleOutOfLives() {
                     startGaming();
                 },
             },
+            {
+                label: 'High score table',
+                action: () => {
+                    saritHadad.pause();
+                    saritHadad.currentTime = 0;
+                    showHighscoreTable();
+                    gotoHighScore();
+                    closeDialogModal();
+                },
+            },
         ],
         'out-of-lives-dialog',
         'out-of-lives-dialog'
@@ -506,6 +519,7 @@ function handleOutOfLives() {
   
 // handle when the player runs out of time
 function handleOutOfTime() {
+    addScore(currentUserLogedIn,userScore);
     britneySpears.play();
     createFinalScoreDialogModal(
         'You can do better!',
@@ -530,6 +544,16 @@ function handleOutOfTime() {
                     gotoConfiguration();
                 },
             },
+            {
+                label: 'High score table',
+                action: () => {
+                    britneySpears.pause();
+                    britneySpears.currentTime = 0;
+                    showHighscoreTable();
+                    gotoHighScore();
+                    closeDialogModal();
+                },
+            },
         ],
         'out-of-time-dialog',
         'out-of-time-dialog'
@@ -543,6 +567,7 @@ function handleOutOfTime() {
   
 // handle when the player wins
 function handleWiner() {
+    addScore(currentUserLogedIn,userScore);
     survivor.play();
     createFinalScoreDialogModal(
         'Winner!',
@@ -558,13 +583,16 @@ function handleWiner() {
                     startGaming();
                 },
             },
-            // {
-            //     label: 'Change configuration',
-            //     action: () => {
-            //         gotoConfiguration();
-            //         closeDialogModal();
-            //     },
-            // },
+            {
+                label: 'High score table',
+                action: () => {
+                    survivor.pause();
+                    survivor.currentTime = 0;
+                    showHighscoreTable();
+                    gotoHighScore();
+                    closeDialogModal();
+                },
+            },
         ],
         'out-of-win-dialog',
         'out-of-win-dialog'
@@ -578,6 +606,7 @@ function handleWiner() {
 
 // handle when the player is champion
 function handleChampion() {
+    addScore(currentUserLogedIn,userScore);
     michaelJackson.play();
     createFinalScoreDialogModal(
         'Champion!',
@@ -593,13 +622,16 @@ function handleChampion() {
                     startGaming();
                 },
             },
-            // {
-            //     label: 'Change configuration',
-            //     action: () => {
-            //         gotoConfiguration();
-            //         closeDialogModal();
-            //     },
-            // },
+            {
+                label: 'High score table',
+                action: () => {
+                    michaelJackson.pause();
+                    michaelJackson.currentTime = 0;
+                    showHighscoreTable();
+                    gotoHighScore();
+                    closeDialogModal();
+                },
+            },
         ],
         'out-of-champion-dialog',
         'out-of-champion-dialog'
@@ -801,3 +833,67 @@ function stopGame() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     document.getElementById("Home").style.display="flex";
 }
+
+//---------High score table----------------
+// Add a new score record to the array
+function addScore(username, score) {
+    const scoreObject = { username: username, score: score };
+    highScores.push(scoreObject);
+//   updateTable();
+}
+
+// Update the table with the latest scores
+function updateTable() {
+    const tableBody = document.querySelector("#highscore-body");
+
+  // Sort the scores in descending order
+  highScores.sort((a, b) => b.score - a.score);
+
+  // Clear the table
+  tableBody.innerHTML = "";
+
+  // Loop through the top 10 scores
+  for (let i = 0; i < Math.min(highScores.length, 10); i++) {
+    const row = document.createElement("tr");
+    const rankCell = document.createElement("td");
+    const usernameCell = document.createElement("td");
+    const scoreCell = document.createElement("td");
+
+    rankCell.textContent = i + 1;
+    usernameCell.textContent = highScores[i].username;
+    scoreCell.textContent = highScores[i].score;
+
+    row.appendChild(rankCell);
+    row.appendChild(usernameCell);
+    row.appendChild(scoreCell);
+
+    tableBody.appendChild(row);
+  }
+}
+
+//Back-to-game button from the highscore table
+const backToGameButton = document.querySelector("#back-to-game-button");
+
+backToGameButton.addEventListener("click", () => {
+  // hide the highscore table
+  document.querySelector("#highscore-container").style.display = "none";
+  // show the game section
+  document.querySelector("#Game").style.display = "flex";
+});
+
+// Show the highscore table and update it with the latest scores
+function showHighscoreTable() {
+    // Hide the game section
+    const gameSection = document.getElementById("Game");
+    gameSection.style.display = "none";
+  
+    // Show the highscore section
+    const highscoreSection = document.getElementById("highscore-container");
+    highscoreSection.style.display = "flex";
+  
+    // Update the highscore table
+    updateTable();
+}
+
+  
+
